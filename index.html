@@ -129,9 +129,11 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
     <h3>Blood Pressure & Medications</h3>
     <div class="row">
       <div class="field"><label>Time</label><input type="time" id="bpTime"></div>
-      <div class="field"><label>Systolic</label><input type="number" id="bpSys" placeholder="120" inputmode="numeric" style="width:80px"></div>
-      <div class="field"><label>Diastolic</label><input type="number" id="bpDia" placeholder="80" inputmode="numeric" style="width:80px"></div>
-      <div class="field"><label>Pulse</label><input type="number" id="bpPulse" placeholder="72" inputmode="numeric" style="width:80px"></div>
+    </div>
+    <div class="bp-readings-row">
+      <div class="field"><label>Systolic</label><input type="number" id="bpSys" placeholder="120" inputmode="numeric"></div>
+      <div class="field"><label>Diastolic</label><input type="number" id="bpDia" placeholder="80" inputmode="numeric"></div>
+      <div class="field"><label>Pulse</label><input type="number" id="bpPulse" placeholder="72" inputmode="numeric"></div>
     </div>
     <div class="row" style="margin-top:8px">
       <div class="field"><label>Symptoms</label>
@@ -165,12 +167,14 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
 
   <div class="card">
     <h3>Water & Steps</h3>
-    <div class="row">
-      <div class="field"><label>Water (oz)</label><input type="number" id="waterAmt" placeholder="8" inputmode="numeric" style="width:80px"></div>
+    <div class="ws-row">
+      <label>Water (oz)</label>
+      <input type="number" id="waterAmt" placeholder="8" inputmode="numeric">
       <button class="btn btn-primary btn-sm" onclick="addWater()">+ Water</button>
     </div>
-    <div class="row" style="margin-top:8px">
-      <div class="field"><label>Steps</label><input type="number" id="stepsAmt" placeholder="500" inputmode="numeric" style="width:80px"></div>
+    <div class="ws-row" style="margin-top:8px">
+      <label>Steps</label>
+      <input type="number" id="stepsAmt" placeholder="500" inputmode="numeric">
       <button class="btn btn-primary btn-sm" onclick="addSteps()">+ Steps</button>
     </div>
     <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;">
