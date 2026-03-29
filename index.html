@@ -1,3 +1,4 @@
+
 <style>body{margin:0}img{display:block;max-width:100%}</style><script>(function(){function S(){var d={};Object.defineProperties(this,{getItem:{value:function(k){return d.hasOwnProperty(k)?d[k]:null}},setItem:{value:function(k,v){var o=d[k]||null;d[k]=String(v);this.length=Object.keys(d).length}},removeItem:{value:function(k){delete d[k];this.length=Object.keys(d).length}},clear:{value:function(){d={};this.length=0}},key:{value:function(i){return Object.keys(d)[i]||null}},length:{value:0,writable:true}})}try{window.localStorage}catch(e){Object.defineProperty(window,'localStorage',{value:new S(),configurable:true})}try{window.sessionStorage}catch(e){Object.defineProperty(window,'sessionStorage',{value:new S(),configurable:true})}var hp=history.pushState;history.pushState=function(){try{hp.apply(history,arguments)}catch(e){}};var hr=history.replaceState;history.replaceState=function(){try{hr.apply(history,arguments)}catch(e){}};try{document.cookie}catch(e){Object.defineProperty(document,'cookie',{get:function(){return ''},set:function(){},configurable:true})}})();</script><script>document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();var id=a.getAttribute('href').slice(1);if(!id)return;var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}try{history.replaceState(null,'','#'+id)}catch(e){}});</script><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 header{display:flex;align-items:center;justify-content:space-between;padding:12px 0 10px;border-bottom:1px solid var(--border);margin-bottom:12px;flex-wrap:wrap;gap:8px;}
 header h1{font-size:1.25rem;font-weight:700;white-space:nowrap;} header h1 span{color:var(--accent);}
 .date-nav{display:flex;align-items:center;gap:6px;}
-.date-nav button,.date-nav input[type=date]{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.9rem;min-height:38px;}
+.date-nav button,.date-nav input[type=date]{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.9rem;min-height:40px;}
 .tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;}
 .tab{padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.82rem;font-weight:500;transition:.15s;white-space:nowrap;}
 .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
@@ -28,9 +29,9 @@ header h1{font-size:1.25rem;font-weight:700;white-space:nowrap;} header h1 span{
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;}
 .field{display:flex;flex-direction:column;gap:4px;min-width:0;}
 .field label{font-size:.72rem;color:var(--text2);font-weight:500;}
-.field input,.field select,.field textarea{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:9px 10px;border-radius:8px;font-size:.9rem;font-family:inherit;min-height:38px;}
+.field input,.field select,.field textarea{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:9px 10px;border-radius:8px;font-size:.9rem;font-family:inherit;height:40px;}
 .field input:focus,.field select:focus{outline:none;border-color:var(--accent);}
-.btn{padding:9px 16px;border-radius:8px;border:none;font-size:.85rem;font-weight:600;cursor:pointer;transition:.15s;min-height:38px;white-space:nowrap;}
+.btn{padding:9px 16px;border-radius:8px;border:none;font-size:.85rem;font-weight:600;cursor:pointer;transition:.15s;height:40px;white-space:nowrap;}
 .btn-primary{background:var(--accent);color:#fff;}.btn-primary:hover{background:var(--accent2);}
 .btn-sm{padding:7px 12px;font-size:.8rem;}
 .btn-green{background:var(--green);color:#111;}
@@ -63,7 +64,7 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
 .corr-neg{background:rgba(240,104,104,.15);color:var(--red);}
 .corr-none{background:rgba(139,143,168,.1);color:var(--text2);}
 .multi-select{position:relative;}
-.multi-select-toggle{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:9px 10px;border-radius:8px;font-size:.9rem;min-height:38px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:6px;user-select:none;}
+.multi-select-toggle{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:9px 10px;border-radius:8px;font-size:.9rem;height:40px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:6px;user-select:none;}
 .multi-select-toggle::after{content:'▾';font-size:.7rem;color:var(--text2);}
 .multi-select-toggle.open{border-color:var(--accent);}
 .multi-select-dropdown{position:absolute;top:100%;left:0;right:0;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-top:4px;z-index:50;display:none;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.4);}
@@ -88,18 +89,19 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
 .modal h2{font-size:1.1rem;margin-bottom:14px;}
 .modal .field{margin-bottom:10px;}
 .modal .field input{width:100%;}
-@media(max-width:600px){.row>.field{flex:1 1 calc(50% - 4px);min-width:70px;}.row>.btn{width:100%;margin-top:4px;}.daily-totals{grid-template-columns:repeat(2,1fr);}.chart-container{height:220px;}.multi-select-dropdown{position:fixed;left:10px;right:10px;top:auto;bottom:70px;max-height:50vh;overflow-y:auto;}}
+.section-divider{border-top:1px solid var(--border);margin:14px 0;padding-top:12px;}
+.section-divider h3{font-size:.75rem;font-weight:600;margin-bottom:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;}
+.ws-grid{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:end;}
+@media(max-width:600px){.row>.field{flex:1 1 calc(50% - 4px);min-width:70px;}.row>.btn{width:100%;margin-top:4px;}.daily-totals{grid-template-columns:repeat(2,1fr);}.chart-container{height:220px;}.multi-select-dropdown{position:fixed;left:10px;right:10px;top:auto;bottom:70px;max-height:50vh;overflow-y:auto;}.ws-grid{grid-template-columns:1fr 1fr;}}
 </style>
 </head><body>
 <div class="app">
-<!-- SYNC STATUS BAR -->
 <div class="sync-bar" id="syncBar">
   <div class="sync-dot off" id="syncDot"></div>
   <span id="syncStatus">Local only — no cloud sync</span>
   <div style="flex:1"></div>
   <button class="btn btn-sm btn-outline" onclick="openSettings()">⚙ Data &amp; Backup</button>
 </div>
-
 <header>
   <h1>🩺 Recovery <span>Tracker</span></h1>
   <div class="date-nav">
@@ -109,8 +111,7 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
     <button onclick="goToday()" class="btn-sm btn-outline">Today</button>
   </div>
 </header>
-
-<div class="tabs" id="tabBar">
+<div class="tabs">
   <div class="tab active" onclick="switchTab('log')">📝 Log</div>
   <div class="tab" onclick="switchTab('daily')">📊 Daily</div>
   <div class="tab" onclick="switchTab('charts')">📈 Charts</div>
@@ -118,17 +119,19 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
   <div class="tab" onclick="switchTab('export')">📤 Export</div>
 </div>
 
-<!-- LOG PANEL -->
+<!-- LOG PANEL — consolidated BP + Meds -->
 <div id="panel-log" class="panel active">
   <div class="card">
-    <h3>Blood Pressure</h3>
+    <h3>Blood Pressure & Medications</h3>
     <div class="row">
       <div class="field"><label>Time</label><input type="time" id="bpTime"></div>
       <div class="field"><label>Systolic</label><input type="number" id="bpSys" placeholder="120" inputmode="numeric" style="width:80px"></div>
       <div class="field"><label>Diastolic</label><input type="number" id="bpDia" placeholder="80" inputmode="numeric" style="width:80px"></div>
       <div class="field"><label>Pulse</label><input type="number" id="bpPulse" placeholder="72" inputmode="numeric" style="width:80px"></div>
+    </div>
+    <div class="row" style="margin-top:8px">
       <div class="field"><label>Symptoms</label>
-        <div class="multi-select" id="bpSymptomSelect">
+        <div class="multi-select">
           <div class="multi-select-toggle" onclick="toggleDD('bpSymDrop',this)"><span class="multi-select-pills" id="bpSymPills"><span style="color:var(--text2)">Select…</span></span></div>
           <div class="multi-select-dropdown" id="bpSymDrop">
             <label class="multi-select-option"><input type="checkbox" value="Headache" onchange="updatePills('bpSymDrop','bpSymPills')">Headache</label>
@@ -138,18 +141,8 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
           </div>
         </div>
       </div>
-      <div class="field"><label>Notes</label><input type="text" id="bpNotes" placeholder="Optional" style="width:120px"></div>
-      <button class="btn btn-primary" onclick="addBP()">Log BP</button>
-    </div>
-    <div class="log-list" id="bpList"></div>
-  </div>
-
-  <div class="card">
-    <h3>Medications</h3>
-    <div class="row">
-      <div class="field"><label>Time</label><input type="time" id="medTime"></div>
-      <div class="field" style="flex:1;min-width:180px;"><label>Medications</label>
-        <div class="multi-select" id="medSelect">
+      <div class="field"><label>Medications</label>
+        <div class="multi-select">
           <div class="multi-select-toggle" onclick="toggleDD('medDrop',this)"><span class="multi-select-pills" id="medPills"><span style="color:var(--text2)">Select…</span></span></div>
           <div class="multi-select-dropdown" id="medDrop">
             <label class="multi-select-option"><input type="checkbox" value="Florinef" onchange="updatePills('medDrop','medPills')">Florinef</label>
@@ -160,21 +153,10 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" onclick="addMed()">Log Meds</button>
+      <div class="field"><label>Notes</label><input type="text" id="bpNotes" placeholder="Optional" style="width:120px"></div>
+      <button class="btn btn-primary" onclick="addEntry()">Log Entry</button>
     </div>
-    <div class="log-list" id="medList"></div>
-  </div>
-
-  <div class="card">
-    <h3>Symptoms</h3>
-    <div class="row" style="margin-bottom:8px;">
-      <div class="field"><label>Time</label><input type="time" id="symTime"></div>
-      <div class="field"><label>Symptom</label><input type="text" id="symName" placeholder="e.g. Headache" style="width:150px"></div>
-      <div class="field"><label>Severity (1-10)</label><input type="number" id="symSev" inputmode="numeric" min="1" max="10" placeholder="5" style="width:70px"></div>
-      <button class="btn btn-primary" onclick="addSym()">Log</button>
-    </div>
-    <div id="symQuick" style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;"></div>
-    <div class="log-list" id="symList"></div>
+    <div class="log-list" id="entryList"></div>
   </div>
 
   <div class="card">
@@ -182,8 +164,9 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
     <div class="row">
       <div class="field"><label>Water (oz)</label><input type="number" id="waterAmt" placeholder="8" inputmode="numeric" style="width:80px"></div>
       <button class="btn btn-primary btn-sm" onclick="addWater()">+ Water</button>
-      <div style="width:12px"></div>
-      <div class="field"><label>Steps</label><input type="number" id="stepsAmt" placeholder="500" inputmode="numeric" style="width:100px"></div>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <div class="field"><label>Steps</label><input type="number" id="stepsAmt" placeholder="500" inputmode="numeric" style="width:80px"></div>
       <button class="btn btn-primary btn-sm" onclick="addSteps()">+ Steps</button>
     </div>
     <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;">
@@ -217,23 +200,22 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
 <div class="modal">
   <h2>⚙ Data & Backup</h2>
   <div class="card" style="border-color:var(--green)">
-    <h3 style="color:var(--green)">💾 Manual Backup (Always Works)</h3>
-    <p style="font-size:.82rem;color:var(--text2);margin-bottom:10px">Download a full backup file. Restore anytime to recover all data.</p>
+    <h3 style="color:var(--green)">💾 Manual Backup</h3>
+    <p style="font-size:.82rem;color:var(--text2);margin-bottom:10px">Download a full backup. Restore anytime on any device.</p>
     <div class="row">
       <button class="btn btn-green" onclick="downloadBackup()">⬇ Download Backup</button>
-      <button class="btn btn-outline" onclick="document.getElementById('restoreInput').click()">📂 Restore from File</button>
+      <button class="btn btn-outline" onclick="document.getElementById('restoreInput').click()">📂 Restore</button>
       <input type="file" id="restoreInput" accept=".json" style="display:none" onchange="restoreBackup(this)">
     </div>
     <p id="backupInfo" style="font-size:.75rem;color:var(--text2);margin-top:8px"></p>
   </div>
   <div class="card">
-    <h3>☁️ Firebase Cloud Sync (Optional)</h3>
-    <p style="font-size:.82rem;color:var(--text2);margin-bottom:10px">Auto-syncs across devices. Free tier is plenty.<br>
-    <strong>Setup:</strong> Go to <a href="https://console.firebase.google.com" target="_blank" style="color:var(--accent)">Firebase Console</a> → Create project → Realtime Database → Create → Start in test mode → Copy config.</p>
+    <h3>☁️ Firebase Cloud Sync</h3>
+    <p style="font-size:.82rem;color:var(--text2);margin-bottom:10px">Auto-syncs across devices. <a href="https://console.firebase.google.com" target="_blank" style="color:var(--accent)">Firebase Console</a> → Create project → Realtime Database → test mode → copy config.</p>
     <div class="field"><label>API Key</label><input type="text" id="fbApiKey" placeholder="AIza..."></div>
     <div class="field"><label>Database URL</label><input type="text" id="fbDbUrl" placeholder="https://your-project.firebaseio.com"></div>
     <div class="field"><label>Project ID</label><input type="text" id="fbProjId" placeholder="your-project-id"></div>
-    <div class="field" style="margin-top:6px"><label>Sync Password (encrypts your data ID)</label><input type="password" id="fbPassword" placeholder="Any passphrase you'll remember"></div>
+    <div class="field" style="margin-top:6px"><label>Sync Password</label><input type="password" id="fbPassword" placeholder="Any passphrase"></div>
     <div class="row" style="margin-top:10px">
       <button class="btn btn-primary" onclick="connectFirebase()">Connect & Sync</button>
       <button class="btn btn-outline" onclick="disconnectFirebase()">Disconnect</button>
@@ -244,215 +226,105 @@ table.export-table th{background:var(--surface2);color:var(--text2);font-weight:
 </div>
 </div>
 </div><script>
-// ── DATA LAYER ──
 const DB_KEY='recoveryTracker';
 let data=JSON.parse(localStorage.getItem(DB_KEY)||'{}');
-let fbRef=null, fbConnected=false;
-function save(){
-  localStorage.setItem(DB_KEY,JSON.stringify(data));
-  if(fbRef&&fbConnected) fbRef.set(data).then(()=>updateSyncUI('Synced just now','green')).catch(e=>updateSyncUI('Sync error','orange'));
-  updateBackupInfo();
-}
+let fbRef=null,fbConnected=false;
+function save(){localStorage.setItem(DB_KEY,JSON.stringify(data));if(fbRef&&fbConnected)fbRef.set(data).then(()=>updateSyncUI('Synced','green')).catch(()=>updateSyncUI('Sync error','orange'));updateBackupInfo();}
 function dayData(d){if(!data[d])data[d]={bp:[],meds:[],symptoms:[],water:[],steps:[]};return data[d];}
 function today(){return document.getElementById('currentDate').value;}
 function nowTime(){const n=new Date();return n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 
-// ── FIREBASE CLOUD SYNC ──
+// Firebase
 function hashStr(s){let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return'u'+Math.abs(h).toString(36);}
 function connectFirebase(){
-  const apiKey=document.getElementById('fbApiKey').value.trim();
-  const dbUrl=document.getElementById('fbDbUrl').value.trim();
-  const projId=document.getElementById('fbProjId').value.trim();
-  const pw=document.getElementById('fbPassword').value.trim();
-  if(!apiKey||!dbUrl||!projId||!pw){document.getElementById('fbStatus').innerHTML='<span style="color:var(--red)">Fill all fields</span>';return;}
-  try{
-    if(!firebase.apps.length) firebase.initializeApp({apiKey,databaseURL:dbUrl,projectId:projId});
-    const userId=hashStr(pw);
-    fbRef=firebase.database().ref('recovery/'+userId);
-    // Push local data first, then listen
-    fbRef.set(data).then(()=>{
-      fbConnected=true;
-      localStorage.setItem('rt_fb_config',JSON.stringify({apiKey,dbUrl,projId,pw}));
-      updateSyncUI('Connected & synced','green');
-      document.getElementById('fbStatus').innerHTML='<span style="color:var(--green)">✅ Connected! Data syncs automatically.</span>';
-      // Listen for remote changes
-      fbRef.on('value',snap=>{
-        const remote=snap.val();
-        if(remote){data=remote;localStorage.setItem(DB_KEY,JSON.stringify(data));loadDay();updateSyncUI('Synced','green');}
-      });
+  const ak=document.getElementById('fbApiKey').value.trim(),du=document.getElementById('fbDbUrl').value.trim(),pi=document.getElementById('fbProjId').value.trim(),pw=document.getElementById('fbPassword').value.trim();
+  if(!ak||!du||!pi||!pw){document.getElementById('fbStatus').innerHTML='<span style="color:var(--red)">Fill all fields</span>';return;}
+  try{if(!firebase.apps.length)firebase.initializeApp({apiKey:ak,databaseURL:du,projectId:pi});
+    fbRef=firebase.database().ref('recovery/'+hashStr(pw));
+    fbRef.set(data).then(()=>{fbConnected=true;localStorage.setItem('rt_fb_config',JSON.stringify({ak,du,pi,pw}));updateSyncUI('Connected','green');document.getElementById('fbStatus').innerHTML='<span style="color:var(--green)">✅ Connected!</span>';
+      fbRef.on('value',snap=>{const r=snap.val();if(r){data=r;localStorage.setItem(DB_KEY,JSON.stringify(data));loadDay();updateSyncUI('Synced','green');}});
     });
-  }catch(e){document.getElementById('fbStatus').innerHTML='<span style="color:var(--red)">Error: '+e.message+'</span>';}
+  }catch(e){document.getElementById('fbStatus').innerHTML='<span style="color:var(--red)">'+e.message+'</span>';}
 }
-function disconnectFirebase(){
-  if(fbRef)fbRef.off();fbRef=null;fbConnected=false;
-  localStorage.removeItem('rt_fb_config');
-  updateSyncUI('Local only','off');
-  document.getElementById('fbStatus').innerHTML='<span style="color:var(--text2)">Disconnected.</span>';
-}
-function autoReconnect(){
-  const cfg=localStorage.getItem('rt_fb_config');
-  if(!cfg)return;
-  try{const c=JSON.parse(cfg);
-    document.getElementById('fbApiKey').value=c.apiKey;
-    document.getElementById('fbDbUrl').value=c.dbUrl;
-    document.getElementById('fbProjId').value=c.projId;
-    document.getElementById('fbPassword').value=c.pw;
-    connectFirebase();
-  }catch(e){}
-}
-function updateSyncUI(msg,color){
-  document.getElementById('syncDot').className='sync-dot '+color;
-  document.getElementById('syncStatus').textContent=msg;
-}
+function disconnectFirebase(){if(fbRef)fbRef.off();fbRef=null;fbConnected=false;localStorage.removeItem('rt_fb_config');updateSyncUI('Local only','off');document.getElementById('fbStatus').innerHTML='Disconnected.';}
+function autoReconnect(){const c=localStorage.getItem('rt_fb_config');if(!c)return;try{const o=JSON.parse(c);document.getElementById('fbApiKey').value=o.ak;document.getElementById('fbDbUrl').value=o.du;document.getElementById('fbProjId').value=o.pi;document.getElementById('fbPassword').value=o.pw;connectFirebase();}catch(e){}}
+function updateSyncUI(m,c){document.getElementById('syncDot').className='sync-dot '+c;document.getElementById('syncStatus').textContent=m;}
 
-// ── MANUAL BACKUP ──
-function downloadBackup(){
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;
-  a.download='recovery-backup-'+new Date().toISOString().slice(0,10)+'.json';
-  a.click();URL.revokeObjectURL(url);
-}
-function restoreBackup(input){
-  const file=input.files[0];if(!file)return;
-  file.text().then(txt=>{
-    try{
-      const restored=JSON.parse(txt);
-      const days=Object.keys(restored).length;
-      if(!confirm('Restore '+days+' days of data? This replaces current data.'))return;
-      data=restored;save();loadDay();
-      document.getElementById('backupInfo').textContent='✅ Restored '+days+' days from '+file.name;
-    }catch(e){alert('Invalid backup file');}
-  });
-  input.value='';
-}
-function updateBackupInfo(){
-  const el=document.getElementById('backupInfo');if(!el)return;
-  const days=Object.keys(data).filter(k=>data[k]&&(data[k].bp?.length||data[k].meds?.length||data[k].symptoms?.length||data[k].water?.length||data[k].steps?.length)).length;
-  el.textContent='Currently tracking '+days+' days of data. Last save: '+new Date().toLocaleTimeString();
-}
+// Backup
+function downloadBackup(){const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='recovery-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(u);}
+function restoreBackup(input){const f=input.files[0];if(!f)return;f.text().then(t=>{try{const r=JSON.parse(t),d=Object.keys(r).length;if(!confirm('Restore '+d+' days? Replaces current data.'))return;data=r;save();loadDay();document.getElementById('backupInfo').textContent='✅ Restored '+d+' days';}catch(e){alert('Invalid file');}});input.value='';}
+function updateBackupInfo(){const el=document.getElementById('backupInfo');if(!el)return;const d=Object.keys(data).filter(k=>data[k]&&(data[k].bp?.length||data[k].meds?.length||data[k].water?.length||data[k].steps?.length)).length;el.textContent=d+' days tracked. Last save: '+new Date().toLocaleTimeString();}
 function openSettings(){document.getElementById('settingsModal').style.display='flex';updateBackupInfo();}
 function closeSettings(){document.getElementById('settingsModal').style.display='none';}
 
-// ── MULTI-SELECT DROPDOWNS ──
-function toggleDD(id,el){
-  const dd=document.getElementById(id),open=dd.classList.toggle('show');
-  el.classList.toggle('open',open);
-  if(open){const c=e=>{if(!dd.contains(e.target)&&!el.contains(e.target)){dd.classList.remove('show');el.classList.remove('open');document.removeEventListener('click',c);}};setTimeout(()=>document.addEventListener('click',c),0);}
-}
+// Dropdowns
+function toggleDD(id,el){const dd=document.getElementById(id),o=dd.classList.toggle('show');el.classList.toggle('open',o);if(o){const c=e=>{if(!dd.contains(e.target)&&!el.contains(e.target)){dd.classList.remove('show');el.classList.remove('open');document.removeEventListener('click',c);}};setTimeout(()=>document.addEventListener('click',c),0);}}
 function getChecked(id){return[...document.querySelectorAll('#'+id+' input:checked')].map(c=>c.value);}
-function updatePills(dropId,pillId){
-  const sel=getChecked(dropId),el=document.getElementById(pillId);
-  el.innerHTML=sel.length?sel.map(s=>'<span class="pill">'+s+'</span>').join(''):'<span style="color:var(--text2)">Select…</span>';
-}
+function updatePills(dId,pId){const s=getChecked(dId),el=document.getElementById(pId);el.innerHTML=s.length?s.map(v=>'<span class="pill">'+v+'</span>').join(''):'<span style="color:var(--text2)">Select…</span>';}
 function clearChecks(id){document.querySelectorAll('#'+id+' input').forEach(c=>c.checked=false);}
 
-// ── BLOOD PRESSURE ──
-function addBP(){
+// Consolidated BP + Meds entry
+function addEntry(){
   const d=dayData(today()),sys=+document.getElementById('bpSys').value,dia=+document.getElementById('bpDia').value;
-  if(!sys||!dia){alert('Enter systolic & diastolic');return;}
-  d.bp.push({id:uid(),time:document.getElementById('bpTime').value,sys,dia,pulse:+document.getElementById('bpPulse').value||null,symptoms:getChecked('bpSymDrop'),notes:document.getElementById('bpNotes').value});
-  d.bp.sort((a,b)=>a.time.localeCompare(b.time));save();renderBPList();
+  const time=document.getElementById('bpTime').value,syms=getChecked('bpSymDrop'),meds=getChecked('medDrop'),notes=document.getElementById('bpNotes').value;
+  if(!sys&&!dia&&!meds.length){alert('Enter BP readings and/or select medications');return;}
+  if(sys&&dia){d.bp.push({id:uid(),time,sys,dia,pulse:+document.getElementById('bpPulse').value||null,symptoms:syms,notes});}
+  if(meds.length){meds.forEach(n=>{d.meds.push({id:uid(),time,name:n});});}
+  // Also log symptoms to symptoms array for chart/analysis compatibility
+  if(syms.length){syms.forEach(s=>{d.symptoms.push({id:uid(),time,name:s,severity:5});});}
+  d.bp.sort((a,b)=>a.time.localeCompare(b.time));
+  d.meds.sort((a,b)=>a.time.localeCompare(b.time));
+  save();renderEntryList();
   document.getElementById('bpSys').value='';document.getElementById('bpDia').value='';document.getElementById('bpPulse').value='';document.getElementById('bpNotes').value='';
-  clearChecks('bpSymDrop');updatePills('bpSymDrop','bpSymPills');
+  clearChecks('bpSymDrop');updatePills('bpSymDrop','bpSymPills');clearChecks('medDrop');updatePills('medDrop','medPills');
 }
-function renderBPList(){
-  const d=dayData(today()),el=document.getElementById('bpList');
-  if(!d.bp.length){el.innerHTML='<p style="color:var(--text2);font-size:.85rem;padding:6px 0">No readings yet</p>';return;}
-  el.innerHTML=d.bp.map(b=>{
+function renderEntryList(){
+  const d=dayData(today()),el=document.getElementById('entryList');
+  // Merge BP and med-only entries into timeline
+  const items=[];
+  d.bp.forEach(b=>{
     let cls='';if(b.sys>=140||b.dia>=90)cls='color:var(--red)';else if(b.sys>=130||b.dia>=85)cls='color:var(--orange)';
-    const sym=(b.symptoms&&b.symptoms.length)?' · '+b.symptoms.join(', '):(b.pos?' · '+b.pos:'');
-    return '<div class="log-item"><span class="time">'+b.time+'</span><span class="val" style="'+cls+'"><strong>'+b.sys+'/'+b.dia+'</strong>'+(b.pulse?' · '+b.pulse+' bpm':'')+sym+(b.notes?' · '+b.notes:'')+'</span><button class="del" onclick="delBP(\''+b.id+'\')">✕</button></div>';
-  }).join('');
+    const sym=(b.symptoms&&b.symptoms.length)?' · '+b.symptoms.join(', '):'';
+    items.push({time:b.time,html:'<span class="val" style="'+cls+'">🩸 <strong>'+b.sys+'/'+b.dia+'</strong>'+(b.pulse?' · '+b.pulse+'bpm':'')+sym+(b.notes?' · '+b.notes:'')+'</span>',delFn:"delBP('"+b.id+"')"});
+  });
+  // Group meds by time
+  const mg={};d.meds.forEach(m=>{if(!mg[m.time])mg[m.time]=[];mg[m.time].push(m);});
+  Object.entries(mg).forEach(([t,ms])=>{
+    const ids=JSON.stringify(ms.map(m=>m.id)).replace(/"/g,'&quot;');
+    items.push({time:t,html:'<span class="val">💊 <strong>'+ms.map(m=>m.name).join(', ')+'</strong></span>',delFn:"delMeds(["+ms.map(m=>"'"+m.id+"'").join(',')+"])"});
+  });
+  items.sort((a,b)=>a.time.localeCompare(b.time));
+  if(!items.length){el.innerHTML='<p style="color:var(--text2);font-size:.85rem;padding:6px 0">No entries yet</p>';return;}
+  el.innerHTML=items.map(i=>'<div class="log-item"><span class="time">'+i.time+'</span>'+i.html+'<button class="del" onclick="'+i.delFn+'">✕</button></div>').join('');
 }
-function delBP(id){const d=dayData(today());d.bp=d.bp.filter(b=>b.id!==id);save();renderBPList();}
+function delBP(id){const d=dayData(today());d.bp=d.bp.filter(b=>b.id!==id);save();renderEntryList();}
+function delMeds(ids){const d=dayData(today());d.meds=d.meds.filter(m=>!ids.includes(m.id));save();renderEntryList();}
 
-// ── MEDICATIONS ──
-function addMed(){
-  const d=dayData(today()),names=getChecked('medDrop');
-  if(!names.length){alert('Select at least one medication');return;}
-  const time=document.getElementById('medTime').value;
-  names.forEach(n=>{d.meds.push({id:uid(),time,name:n});});
-  d.meds.sort((a,b)=>a.time.localeCompare(b.time));save();renderMedList();clearChecks('medDrop');updatePills('medDrop','medPills');
-}
-function renderMedList(){
-  const d=dayData(today()),el=document.getElementById('medList');
-  if(!d.meds.length){el.innerHTML='<p style="color:var(--text2);font-size:.85rem;padding:6px 0">No medications logged</p>';return;}
-  const g={};d.meds.forEach(m=>{const k=m.time;if(!g[k])g[k]=[];g[k].push(m);});
-  el.innerHTML=Object.entries(g).map(([t,ms])=>{
-    const ids=ms.map(m=>m.id);
-    return '<div class="log-item"><span class="time">'+t+'</span><span class="val"><strong>'+ms.map(m=>m.name).join(', ')+'</strong></span><button class="del" onclick="delMeds('+JSON.stringify(ids).replace(/"/g,'&quot;')+')">✕</button></div>';
-  }).join('');
-}
-function delMeds(ids){const d=dayData(today());d.meds=d.meds.filter(m=>!ids.includes(m.id));save();renderMedList();}
+// Water & Steps
+function addWater(){const d=dayData(today()),a=+document.getElementById('waterAmt').value;if(!a)return;d.water.push({id:uid(),time:nowTime(),amount:a});save();renderWS();document.getElementById('waterAmt').value='';}
+function addSteps(){const d=dayData(today()),a=+document.getElementById('stepsAmt').value;if(!a)return;d.steps.push({id:uid(),time:nowTime(),amount:a});save();renderWS();document.getElementById('stepsAmt').value='';}
+function renderWS(){const d=dayData(today());document.getElementById('waterTotal').textContent=(d.water||[]).reduce((s,w)=>s+w.amount,0)+' oz';document.getElementById('stepsTotal').textContent=(d.steps||[]).reduce((s,w)=>s+w.amount,0).toLocaleString();}
 
-// ── SYMPTOMS ──
-const defSym=['Pain','Nausea','Dizziness','Fatigue','Swelling','Headache','Insomnia','Numbness'];
-function buildSymChips(){
-  const el=document.getElementById('symQuick'),all=new Set(defSym);
-  Object.values(data).forEach(d=>(d.symptoms||[]).forEach(s=>all.add(s.name)));
-  el.innerHTML='<span style="font-size:.72rem;color:var(--text2)">Quick:</span>'+[...all].map(s=>'<span style="padding:6px 10px;border-radius:6px;font-size:.78rem;background:var(--surface2);border:1px solid var(--border);color:var(--text2);cursor:pointer" onclick="document.getElementById(\'symName\').value=\''+s+'\'">'+s+'</span>').join('');
-}
-function addSym(){
-  const d=dayData(today()),name=document.getElementById('symName').value.trim();
-  if(!name){alert('Enter symptom');return;}
-  d.symptoms.push({id:uid(),time:document.getElementById('symTime').value,name,severity:+document.getElementById('symSev').value||5});
-  d.symptoms.sort((a,b)=>a.time.localeCompare(b.time));save();renderSymList();buildSymChips();
-  document.getElementById('symName').value='';document.getElementById('symSev').value='';
-}
-function renderSymList(){
-  const d=dayData(today()),el=document.getElementById('symList');
-  if(!d.symptoms.length){el.innerHTML='<p style="color:var(--text2);font-size:.85rem;padding:6px 0">No symptoms logged</p>';return;}
-  el.innerHTML=d.symptoms.map(s=>{
-    const c=s.severity>=7?'var(--red)':s.severity>=4?'var(--orange)':'var(--green)';
-    return '<div class="log-item"><span class="time">'+s.time+'</span><span class="val"><strong>'+s.name+'</strong> <span style="color:'+c+'">severity '+s.severity+'/10</span></span><button class="del" onclick="delSym(\''+s.id+'\')">✕</button></div>';
-  }).join('');
-}
-function delSym(id){const d=dayData(today());d.symptoms=d.symptoms.filter(s=>s.id!==id);save();renderSymList();}
-
-// ── WATER & STEPS ──
-function addWater(){const d=dayData(today()),a=+document.getElementById('waterAmt').value;if(!a){alert('Enter amount');return;}d.water.push({id:uid(),time:nowTime(),amount:a});save();renderWS();document.getElementById('waterAmt').value='';}
-function addSteps(){const d=dayData(today()),a=+document.getElementById('stepsAmt').value;if(!a){alert('Enter steps');return;}d.steps.push({id:uid(),time:nowTime(),amount:a});save();renderWS();document.getElementById('stepsAmt').value='';}
-function renderWS(){
-  const d=dayData(today());
-  document.getElementById('waterTotal').textContent=(d.water||[]).reduce((s,w)=>s+w.amount,0)+' oz';
-  document.getElementById('stepsTotal').textContent=(d.steps||[]).reduce((s,w)=>s+w.amount,0).toLocaleString();
-}
-
-// ── APPLE HEALTH ──
+// Apple Health
 async function importAppleHealth(input){
   const file=input.files[0];if(!file)return;
   const st=document.getElementById('healthStatus');
   st.innerHTML='<div class="health-status" style="background:rgba(108,140,255,.1);color:var(--accent)">⏳ Processing…</div>';
   try{let xml;
-    if(file.name.endsWith('.zip')){
-      const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';document.head.appendChild(s);
-      await new Promise((r,j)=>{s.onload=r;s.onerror=j;});
-      const z=await JSZip.loadAsync(file),xf=Object.keys(z.files).find(f=>f.endsWith('.xml'));
-      if(!xf)throw new Error('No XML in ZIP');xml=await z.files[xf].async('string');
-    }else{xml=await file.text();}
-    const doc=new DOMParser().parseFromString(xml,'text/xml');
-    const recs=doc.querySelectorAll('Record[type="HKQuantityTypeIdentifierStepCount"]');
-    let ds={},td=0;
-    recs.forEach(r=>{const dt=r.getAttribute('startDate')?.slice(0,10),v=parseFloat(r.getAttribute('value'))||0;if(dt&&v){if(!ds[dt])ds[dt]=0;ds[dt]+=v;}});
+    if(file.name.endsWith('.zip')){const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';document.head.appendChild(s);await new Promise((r,j)=>{s.onload=r;s.onerror=j;});const z=await JSZip.loadAsync(file),xf=Object.keys(z.files).find(f=>f.endsWith('.xml'));if(!xf)throw new Error('No XML in ZIP');xml=await z.files[xf].async('string');}else{xml=await file.text();}
+    const doc=new DOMParser().parseFromString(xml,'text/xml'),recs=doc.querySelectorAll('Record[type="HKQuantityTypeIdentifierStepCount"]');
+    let ds={},td=0;recs.forEach(r=>{const dt=r.getAttribute('startDate')?.slice(0,10),v=parseFloat(r.getAttribute('value'))||0;if(dt&&v){if(!ds[dt])ds[dt]=0;ds[dt]+=v;}});
     Object.entries(ds).forEach(([date,steps])=>{const d=dayData(date);d.steps=d.steps.filter(s=>s.source!=='apple_health');d.steps.push({id:uid(),time:'00:00',amount:Math.round(steps),source:'apple_health'});td++;});
-    save();renderWS();
-    st.innerHTML='<div class="health-status success">✅ Imported steps for <strong>'+td+' days</strong></div>';
-  }catch(e){st.innerHTML='<div class="health-status error">❌ '+e.message+'</div>';}
-  input.value='';
+    save();renderWS();st.innerHTML='<div class="health-status success">✅ Imported steps for <strong>'+td+' days</strong></div>';
+  }catch(e){st.innerHTML='<div class="health-status error">❌ '+e.message+'</div>';}input.value='';
 }
 
-// ── TABS ──
+// Tabs
 const TN={log:'Log',daily:'Daily',charts:'Charts',analysis:'Analysis',export:'Export'};
-function switchTab(n){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.textContent.includes(TN[n])));
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('panel-'+n).classList.add('active');
-  if(n==='daily')renderDaily();if(n==='charts')renderCharts();
-}
+function switchTab(n){document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.textContent.includes(TN[n])));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+n).classList.add('active');if(n==='daily')renderDaily();if(n==='charts')renderCharts();}
 
-// ── DAILY SUMMARY ──
+// Daily
 function renderDaily(){
   const d=dayData(today()),t=document.getElementById('dailyTotals');
   const wt=(d.water||[]).reduce((s,w)=>s+w.amount,0),st=(d.steps||[]).reduce((s,w)=>s+w.amount,0),bc=d.bp.length;
@@ -468,62 +340,47 @@ function renderDaily(){
   document.getElementById('timeline').innerHTML=ev.length?ev.map(e=>'<div class="log-item"><span class="time">'+e.time+'</span><span class="val">'+e.icon+' '+e.text+'</span></div>').join(''):'<p style="color:var(--text2);font-size:.85rem">No entries</p>';
 }
 
-// ── CHARTS ──
+// Charts
 let cBP,cWS,cSY;
 function getDays(n=30){const e=new Date(today()+'T12:00:00'),d=[];for(let i=n-1;i>=0;i--){const x=new Date(e);x.setDate(x.getDate()-i);d.push(x.toISOString().split('T')[0]);}return d;}
-function cOpts(x){return{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},...x,plugins:{legend:{labels:{color:'#e4e6f0',boxWidth:12,padding:10}},tooltip:{mode:'index',intersect:false},...(x.plugins||{})}};}
+function cO(x){return{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},...x,plugins:{legend:{labels:{color:'#e4e6f0',boxWidth:12}},tooltip:{mode:'index',intersect:false},...(x.plugins||{})}};}
 function renderCharts(){
   const days=getDays(30),sD=[],dD=[],pD=[];
+  const ts={type:'time',time:{unit:'day',tooltipFormat:'MMM d'},grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#8b8fa8',maxRotation:45}},ys={grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#8b8fa8'}};
   days.forEach(d=>{const dd=data[d];if(dd&&dd.bp&&dd.bp.length){const a=k=>Math.round(dd.bp.reduce((s,b)=>s+b[k],0)/dd.bp.length);sD.push({x:d,y:a('sys')});dD.push({x:d,y:a('dia')});if(dd.bp.some(b=>b.pulse))pD.push({x:d,y:a('pulse')});}});
-  const tsc={type:'time',time:{unit:'day',tooltipFormat:'MMM d'},grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#8b8fa8',maxRotation:45}};
-  const ysc={grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#8b8fa8'}};
-  if(cBP)cBP.destroy();
-  cBP=new Chart(document.getElementById('chartBP'),{type:'line',data:{datasets:[{label:'Systolic',data:sD,borderColor:'#f06868',tension:.3,fill:false,pointRadius:3},{label:'Diastolic',data:dD,borderColor:'#6c8cff',tension:.3,fill:false,pointRadius:3},{label:'Pulse',data:pD,borderColor:'#b07cf0',tension:.3,fill:false,borderDash:[5,3],pointRadius:3}]},options:cOpts({scales:{x:tsc,y:ysc}})});
-  const wD=[],stD=[];
-  days.forEach(d=>{const dd=data[d]||{water:[],steps:[]};wD.push({x:d,y:(dd.water||[]).reduce((s,w)=>s+w.amount,0)});stD.push({x:d,y:(dd.steps||[]).reduce((s,w)=>s+w.amount,0)});});
-  if(cWS)cWS.destroy();
-  cWS=new Chart(document.getElementById('chartWS'),{type:'bar',data:{datasets:[{label:'Water (oz)',data:wD,backgroundColor:'rgba(80,200,232,.6)',yAxisID:'y'},{label:'Steps',data:stD,backgroundColor:'rgba(78,203,141,.6)',yAxisID:'y1'}]},options:cOpts({scales:{x:tsc,y:{position:'left',title:{display:true,text:'Water',color:'#50c8e8'},...ysc},y1:{position:'right',title:{display:true,text:'Steps',color:'#4ecb8d'},grid:{display:false},ticks:{color:'#8b8fa8'}}}})});
+  if(cBP)cBP.destroy();cBP=new Chart(document.getElementById('chartBP'),{type:'line',data:{datasets:[{label:'Systolic',data:sD,borderColor:'#f06868',tension:.3,fill:false,pointRadius:3},{label:'Diastolic',data:dD,borderColor:'#6c8cff',tension:.3,fill:false,pointRadius:3},{label:'Pulse',data:pD,borderColor:'#b07cf0',tension:.3,fill:false,borderDash:[5,3],pointRadius:3}]},options:cO({scales:{x:ts,y:ys}})});
+  const wD=[],stD=[];days.forEach(d=>{const dd=data[d]||{water:[],steps:[]};wD.push({x:d,y:(dd.water||[]).reduce((s,w)=>s+w.amount,0)});stD.push({x:d,y:(dd.steps||[]).reduce((s,w)=>s+w.amount,0)});});
+  if(cWS)cWS.destroy();cWS=new Chart(document.getElementById('chartWS'),{type:'bar',data:{datasets:[{label:'Water (oz)',data:wD,backgroundColor:'rgba(80,200,232,.6)',yAxisID:'y'},{label:'Steps',data:stD,backgroundColor:'rgba(78,203,141,.6)',yAxisID:'y1'}]},options:cO({scales:{x:ts,y:{position:'left',title:{display:true,text:'Water',color:'#50c8e8'},...ys},y1:{position:'right',title:{display:true,text:'Steps',color:'#4ecb8d'},grid:{display:false},ticks:{color:'#8b8fa8'}}}})});
   const sm={};days.forEach(d=>{const dd=data[d];if(dd)(dd.symptoms||[]).forEach(s=>{if(!sm[s.name])sm[s.name]=[];sm[s.name].push({x:d,y:s.severity});});});
-  const cl=['#f06868','#6c8cff','#4ecb8d','#f0a050','#b07cf0','#50c8e8','#e870b0','#f0e050'];
-  if(cSY)cSY.destroy();
-  cSY=new Chart(document.getElementById('chartSym'),{type:'line',data:{datasets:Object.keys(sm).map((n,i)=>({label:n,data:sm[n],borderColor:cl[i%cl.length],tension:.3,fill:false,pointRadius:4}))},options:cOpts({scales:{x:tsc,y:{min:0,max:10,title:{display:true,text:'Severity',color:'#8b8fa8'},...ysc}}})});
+  const cl=['#f06868','#6c8cff','#4ecb8d','#f0a050','#b07cf0','#50c8e8','#e870b0'];
+  if(cSY)cSY.destroy();cSY=new Chart(document.getElementById('chartSym'),{type:'line',data:{datasets:Object.keys(sm).map((n,i)=>({label:n,data:sm[n],borderColor:cl[i%cl.length],tension:.3,fill:false,pointRadius:4}))},options:cO({scales:{x:ts,y:{min:0,max:10,title:{display:true,text:'Severity',color:'#8b8fa8'},...ys}}})});
 }
 
-// ── ANALYSIS ──
+// Analysis
 function runAnalysis(){
   const from=document.getElementById('analysisFrom').value,to=document.getElementById('analysisTo').value;
   const days=Object.keys(data).filter(d=>d>=from&&d<=to).sort();
   if(!days.length){document.getElementById('analysisResults').innerHTML='<div class="card">No data in range</div>';return;}
   const allBP=[];days.forEach(d=>(data[d].bp||[]).forEach(b=>allBP.push(b)));
   const res=document.getElementById('analysisResults');
-  if(allBP.length){
-    const hS=Math.max(...allBP.map(b=>b.sys)),lS=Math.min(...allBP.map(b=>b.sys)),hD=Math.max(...allBP.map(b=>b.dia)),lD=Math.min(...allBP.map(b=>b.dia));
-    const aS=Math.round(allBP.reduce((s,b)=>s+b.sys,0)/allBP.length),aD=Math.round(allBP.reduce((s,b)=>s+b.dia,0)/allBP.length);
+  if(allBP.length){const hS=Math.max(...allBP.map(b=>b.sys)),lS=Math.min(...allBP.map(b=>b.sys)),hD=Math.max(...allBP.map(b=>b.dia)),lD=Math.min(...allBP.map(b=>b.dia)),aS=Math.round(allBP.reduce((s,b)=>s+b.sys,0)/allBP.length),aD=Math.round(allBP.reduce((s,b)=>s+b.dia,0)/allBP.length);
     res.innerHTML='<div class="card"><h3>BP Summary ('+allBP.length+' readings)</h3><div class="daily-totals"><div class="stat-card"><div class="num" style="color:var(--red)">'+hS+'/'+hD+'</div><div class="lbl">Highest</div></div><div class="stat-card"><div class="num" style="color:var(--green)">'+lS+'/'+lD+'</div><div class="lbl">Lowest</div></div><div class="stat-card"><div class="num">'+aS+'/'+aD+'</div><div class="lbl">Average</div></div></div></div><div class="card"><h3>Activity ('+days.length+' days)</h3><div class="daily-totals"><div class="stat-card"><div class="num" style="color:var(--cyan)">'+Math.round(days.reduce((s,d)=>(s+(data[d].water||[]).reduce((a,w)=>a+w.amount,0)),0)/days.length)+'</div><div class="lbl">Avg Water/day</div></div><div class="stat-card"><div class="num" style="color:var(--green)">'+Math.round(days.reduce((s,d)=>(s+(data[d].steps||[]).reduce((a,w)=>a+w.amount,0)),0)/days.length).toLocaleString()+'</div><div class="lbl">Avg Steps/day</div></div><div class="stat-card"><div class="num" style="color:var(--purple)">'+days.reduce((s,d)=>(s+(data[d].meds||[]).length),0)+'</div><div class="lbl">Total Doses</div></div><div class="stat-card"><div class="num" style="color:var(--orange)">'+days.reduce((s,d)=>(s+(data[d].symptoms||[]).length),0)+'</div><div class="lbl">Symptom Events</div></div></div></div>';
   }else{res.innerHTML='<div class="card">No BP data</div><div class="card"></div>';}
-  const dS=[],dW=[],dSt=[],dSy=[];
-  days.forEach(d=>{const dd=data[d];dS.push(dd.bp&&dd.bp.length?dd.bp.reduce((s,b)=>s+b.sys,0)/dd.bp.length:null);dW.push((dd.water||[]).reduce((s,w)=>s+w.amount,0));dSt.push((dd.steps||[]).reduce((s,w)=>s+w.amount,0));dSy.push((dd.symptoms||[]).length?dd.symptoms.reduce((s,x)=>s+x.severity,0)/dd.symptoms.length:null);});
-  function pear(a,b){const p=[];for(let i=0;i<a.length;i++)if(a[i]!==null&&b[i]!==null)p.push([a[i],b[i]]);if(p.length<3)return null;const n=p.length,sx=p.reduce((s,v)=>s+v[0],0),sy=p.reduce((s,v)=>s+v[1],0),sxx=p.reduce((s,v)=>s+v[0]*v[0],0),syy=p.reduce((s,v)=>s+v[1]*v[1],0),sxy=p.reduce((s,v)=>s+v[0]*v[1],0),dn=Math.sqrt((n*sxx-sx*sx)*(n*syy-sy*sy));return dn===0?0:(n*sxy-sx*sy)/dn;}
+  const dS=[],dW=[],dSt=[],dSy=[];days.forEach(d=>{const dd=data[d];dS.push(dd.bp&&dd.bp.length?dd.bp.reduce((s,b)=>s+b.sys,0)/dd.bp.length:null);dW.push((dd.water||[]).reduce((s,w)=>s+w.amount,0));dSt.push((dd.steps||[]).reduce((s,w)=>s+w.amount,0));dSy.push((dd.symptoms||[]).length?dd.symptoms.reduce((s,x)=>s+x.severity,0)/dd.symptoms.length:null);});
+  function pr(a,b){const p=[];for(let i=0;i<a.length;i++)if(a[i]!==null&&b[i]!==null)p.push([a[i],b[i]]);if(p.length<3)return null;const n=p.length,sx=p.reduce((s,v)=>s+v[0],0),sy=p.reduce((s,v)=>s+v[1],0),sxx=p.reduce((s,v)=>s+v[0]*v[0],0),syy=p.reduce((s,v)=>s+v[1]*v[1],0),sxy=p.reduce((s,v)=>s+v[0]*v[1],0),dn=Math.sqrt((n*sxx-sx*sx)*(n*syy-sy*sy));return dn===0?0:(n*sxy-sx*sy)/dn;}
   function bg(r,l){if(r===null)return'<span class="corr-badge corr-none">'+l+': insufficient data</span>';const c=Math.abs(r)<.3?'corr-none':r>0?'corr-pos':'corr-neg',s=Math.abs(r)<.3?'Weak':Math.abs(r)<.6?'Moderate':'Strong';return'<span class="corr-badge '+c+'">'+l+': '+(r>0?'+':'')+r.toFixed(2)+' ('+s+')</span>';}
-  document.getElementById('corrResults').innerHTML='<p style="font-size:.85rem;margin-bottom:8px;color:var(--text2)">Across '+days.length+' days:</p>'+bg(pear(dS,dW),'BP↔Water')+bg(pear(dS,dSt),'BP↔Steps')+bg(pear(dS,dSy),'BP↔Symptoms')+bg(pear(dW,dSt),'Water↔Steps')+bg(pear(dW,dSy),'Water↔Symptoms')+bg(pear(dSt,dSy),'Steps↔Symptoms');
+  document.getElementById('corrResults').innerHTML='<p style="font-size:.85rem;margin-bottom:8px;color:var(--text2)">Across '+days.length+' days:</p>'+bg(pr(dS,dW),'BP↔Water')+bg(pr(dS,dSt),'BP↔Steps')+bg(pr(dS,dSy),'BP↔Symptoms')+bg(pr(dW,dSt),'Water↔Steps')+bg(pr(dW,dSy),'Water↔Symptoms')+bg(pr(dSt,dSy),'Steps↔Symptoms');
 }
 
-// ── EXPORT ──
-function getExpData(){const f=document.getElementById('exportFrom').value,t=document.getElementById('exportTo').value,r=[];Object.keys(data).filter(d=>d>=f&&d<=t).sort().forEach(d=>{(data[d].bp||[]).forEach(b=>{const sym=(b.symptoms&&b.symptoms.length)?b.symptoms.join(', '):(b.pos||'');r.push({date:d,time:b.time,systolic:b.sys,diastolic:b.dia,pulse:b.pulse||'',symptoms:sym,notes:b.notes||''});});});return r;}
-function renderExportTable(){const r=getExpData();if(!r.length){document.getElementById('exportTableCard').style.display='block';document.getElementById('exportTableWrap').innerHTML='<p style="color:var(--text2)">No data</p>';return;}let h='<table class="export-table"><thead><tr><th>Date</th><th>Time</th><th>Sys</th><th>Dia</th><th>Pulse</th><th>Symptoms</th><th>Notes</th></tr></thead><tbody>';r.forEach(x=>h+='<tr><td>'+x.date+'</td><td>'+x.time+'</td><td>'+x.systolic+'</td><td>'+x.diastolic+'</td><td>'+x.pulse+'</td><td>'+x.symptoms+'</td><td>'+x.notes+'</td></tr>');h+='</tbody></table>';document.getElementById('exportTableCard').style.display='block';document.getElementById('exportTableWrap').innerHTML=h;}
-function exportCSV(){const r=getExpData();if(!r.length){alert('No data');return;}let c='Date,Time,Systolic,Diastolic,Pulse,Symptoms,Notes\n';r.forEach(x=>c+=x.date+','+x.time+','+x.systolic+','+x.diastolic+','+x.pulse+',"'+x.symptoms+'","'+x.notes+'"\n');const b=new Blob([c],{type:'text/csv'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='bp_log.csv';a.click();URL.revokeObjectURL(u);}
-function showPrintView(){const r=getExpData();if(!r.length){alert('No data');return;}const f=document.getElementById('exportFrom').value,t=document.getElementById('exportTo').value;let h='<div class="print-table"><h2>Blood Pressure Log</h2><p style="margin-bottom:12px;color:#555">'+f+' to '+t+' · '+r.length+' readings</p><table><thead><tr><th>Date</th><th>Time</th><th>Sys</th><th>Dia</th><th>Pulse</th><th>Symptoms</th><th>Notes</th></tr></thead><tbody>';r.forEach(x=>{let s='';if(x.systolic>=140||x.diastolic>=90)s='background:#ffe0e0';else if(x.systolic>=130||x.diastolic>=85)s='background:#fff3e0';h+='<tr style="'+s+'"><td>'+x.date+'</td><td>'+x.time+'</td><td>'+x.systolic+'</td><td>'+x.diastolic+'</td><td>'+x.pulse+'</td><td>'+x.symptoms+'</td><td>'+x.notes+'</td></tr>';});const aS=Math.round(r.reduce((s,x)=>s+x.systolic,0)/r.length),aD=Math.round(r.reduce((s,x)=>s+x.diastolic,0)/r.length);h+='<tr style="font-weight:700;background:#e8e8e8"><td colspan="2">AVERAGE</td><td>'+aS+'</td><td>'+aD+'</td><td colspan="3"></td></tr></tbody></table></div>';document.getElementById('exportPrintArea').innerHTML=h;}
+// Export
+function getExp(){const f=document.getElementById('exportFrom').value,t=document.getElementById('exportTo').value,r=[];Object.keys(data).filter(d=>d>=f&&d<=t).sort().forEach(d=>{(data[d].bp||[]).forEach(b=>{const sym=(b.symptoms&&b.symptoms.length)?b.symptoms.join(', '):'';r.push({date:d,time:b.time,sys:b.sys,dia:b.dia,pulse:b.pulse||'',symptoms:sym,notes:b.notes||''});});});return r;}
+function renderExportTable(){const r=getExp();if(!r.length){document.getElementById('exportTableCard').style.display='block';document.getElementById('exportTableWrap').innerHTML='<p style="color:var(--text2)">No data</p>';return;}let h='<table class="export-table"><thead><tr><th>Date</th><th>Time</th><th>Sys</th><th>Dia</th><th>Pulse</th><th>Symptoms</th><th>Notes</th></tr></thead><tbody>';r.forEach(x=>h+='<tr><td>'+x.date+'</td><td>'+x.time+'</td><td>'+x.sys+'</td><td>'+x.dia+'</td><td>'+x.pulse+'</td><td>'+x.symptoms+'</td><td>'+x.notes+'</td></tr>');h+='</tbody></table>';document.getElementById('exportTableCard').style.display='block';document.getElementById('exportTableWrap').innerHTML=h;}
+function exportCSV(){const r=getExp();if(!r.length){alert('No data');return;}let c='Date,Time,Systolic,Diastolic,Pulse,Symptoms,Notes\n';r.forEach(x=>c+=x.date+','+x.time+','+x.sys+','+x.dia+','+x.pulse+',"'+x.symptoms+'","'+x.notes+'"\n');const b=new Blob([c],{type:'text/csv'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='bp_log.csv';a.click();URL.revokeObjectURL(u);}
+function showPrintView(){const r=getExp();if(!r.length){alert('No data');return;}const f=document.getElementById('exportFrom').value,t=document.getElementById('exportTo').value;let h='<div class="print-table"><h2>Blood Pressure Log</h2><p style="margin-bottom:12px;color:#555">'+f+' to '+t+' · '+r.length+' readings</p><table><thead><tr><th>Date</th><th>Time</th><th>Sys</th><th>Dia</th><th>Pulse</th><th>Symptoms</th><th>Notes</th></tr></thead><tbody>';r.forEach(x=>{let s='';if(x.sys>=140||x.dia>=90)s='background:#ffe0e0';else if(x.sys>=130||x.dia>=85)s='background:#fff3e0';h+='<tr style="'+s+'"><td>'+x.date+'</td><td>'+x.time+'</td><td>'+x.sys+'</td><td>'+x.dia+'</td><td>'+x.pulse+'</td><td>'+x.symptoms+'</td><td>'+x.notes+'</td></tr>';});const aS=Math.round(r.reduce((s,x)=>s+x.sys,0)/r.length),aD=Math.round(r.reduce((s,x)=>s+x.dia,0)/r.length);h+='<tr style="font-weight:700;background:#e8e8e8"><td colspan="2">AVERAGE</td><td>'+aS+'</td><td>'+aD+'</td><td colspan="3"></td></tr></tbody></table></div>';document.getElementById('exportPrintArea').innerHTML=h;}
 
-// ── INIT ──
-function loadDay(){renderBPList();renderMedList();renderSymList();renderWS();['bpTime','medTime','symTime'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=nowTime();});}
+// Init
+function loadDay(){renderEntryList();renderWS();['bpTime','medTime','symTime'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=nowTime();});}
 function changeDate(delta){const i=document.getElementById('currentDate'),d=new Date(i.value+'T12:00:00');d.setDate(d.getDate()+delta);i.value=d.toISOString().split('T')[0];loadDay();}
 function goToday(){document.getElementById('currentDate').value=new Date().toISOString().split('T')[0];loadDay();}
-(function(){
-  const d=new Date(),ds=d.toISOString().split('T')[0];
-  document.getElementById('currentDate').value=ds;
-  const w=new Date(d);w.setDate(w.getDate()-7);
-  ['analysisFrom','exportFrom'].forEach(id=>document.getElementById(id).value=w.toISOString().split('T')[0]);
-  ['analysisTo','exportTo'].forEach(id=>document.getElementById(id).value=ds);
-  loadDay();buildSymChips();autoReconnect();
-})();
+(function(){const d=new Date(),ds=d.toISOString().split('T')[0];document.getElementById('currentDate').value=ds;const w=new Date(d);w.setDate(w.getDate()-7);['analysisFrom','exportFrom'].forEach(id=>document.getElementById(id).value=w.toISOString().split('T')[0]);['analysisTo','exportTo'].forEach(id=>document.getElementById(id).value=ds);loadDay();autoReconnect();})();
 </script></body></html>
