@@ -97,12 +97,12 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
   <div><span class="sync-dot off" id="syncDot"></span><h1 style="display:inline">Recovery Tracker</h1></div>
   <button class="settings-btn" onclick="toggleModal('settingsModal')">⚙ Data</button>
 </div>
-<div class="tabs">
-  <button class="tab active" onclick="showTab('log',this)">Log</button>
-  <button class="tab" onclick="showTab('weekly',this)">Weekly</button>
-  <button class="tab" onclick="showTab('charts',this)">Charts</button>
-  <button class="tab" onclick="showTab('analysis',this)">Analysis</button>
-  <button class="tab" onclick="showTab('export',this)">Export</button>
+<div class="tabs" id="tabBar">
+  <button class="tab active" data-tab="log">Log</button>
+  <button class="tab" data-tab="weekly">Weekly</button>
+  <button class="tab" data-tab="charts">Charts</button>
+  <button class="tab" data-tab="analysis">Analysis</button>
+  <button class="tab" data-tab="export">Export</button>
 </div>
 
 <!-- LOG TAB: Consolidated BP + Meds -->
@@ -316,14 +316,24 @@ function restoreBackup(e){
 // === MODAL & TABS ===
 function toggleModal(id){document.getElementById(id).classList.toggle('open');}
 function showTab(name,el){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('panel-'+name).classList.add('active');
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+  var panel=document.getElementById('panel-'+name);
+  if(panel)panel.classList.add('active');
   if(el)el.classList.add('active');
   if(name==='weekly')renderWeekly();
   if(name==='charts')renderCharts();
   if(name==='log'){refreshLog();setCurrentTime();}
 }
+// Event delegation for tabs - works on all mobile browsers
+document.getElementById('tabBar').addEventListener('click',function(e){
+  var btn=e.target.closest('[data-tab]');
+  if(btn)showTab(btn.getAttribute('data-tab'),btn);
+});
+document.getElementById('tabBar').addEventListener('touchend',function(e){
+  var btn=e.target.closest('[data-tab]');
+  if(btn){e.preventDefault();showTab(btn.getAttribute('data-tab'),btn);}
+});
 
 // === DROPDOWNS ===
 function toggleDropdown(id){
