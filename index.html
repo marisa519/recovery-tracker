@@ -98,11 +98,11 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
   <button class="settings-btn" onclick="toggleModal('settingsModal')">⚙ Data</button>
 </div>
 <div class="tabs">
-  <button class="tab active" onclick="showTab('log')">Log</button>
-  <button class="tab" onclick="showTab('weekly')">Weekly</button>
-  <button class="tab" onclick="showTab('charts')">Charts</button>
-  <button class="tab" onclick="showTab('analysis')">Analysis</button>
-  <button class="tab" onclick="showTab('export')">Export</button>
+  <button class="tab active" onclick="showTab('log',this)">Log</button>
+  <button class="tab" onclick="showTab('weekly',this)">Weekly</button>
+  <button class="tab" onclick="showTab('charts',this)">Charts</button>
+  <button class="tab" onclick="showTab('analysis',this)">Analysis</button>
+  <button class="tab" onclick="showTab('export',this)">Export</button>
 </div>
 
 <!-- LOG TAB: Consolidated BP + Meds -->
@@ -244,11 +244,22 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
 <script>
 
 // === DATA LAYER ===
-const STORE_KEY='recovery_tracker_v5';
+const STORE_KEY='recovery_tracker_data';
 let DATA={bp:[],water:[],steps:[],appleSteps:{}};
 function loadData(){try{const d=localStorage.getItem(STORE_KEY);if(d)DATA=JSON.parse(d);}catch(e){}}
 function saveData(){localStorage.setItem(STORE_KEY,JSON.stringify(DATA));syncToFirebase();}
 loadData();
+
+// Migrate from old keys
+(function migrate(){
+  const oldKeys=['recovery_tracker_v5','recovery_tracker_v4','recovery_tracker_v3','recovery_tracker'];
+  if(!localStorage.getItem(STORE_KEY)){
+    for(const k of oldKeys){
+      const d=localStorage.getItem(k);
+      if(d){DATA=JSON.parse(d);saveData();break;}
+    }
+  }
+})();
 
 // === AUTO TIME ===
 function setCurrentTime(){
@@ -304,11 +315,11 @@ function restoreBackup(e){
 
 // === MODAL & TABS ===
 function toggleModal(id){document.getElementById(id).classList.toggle('open');}
-function showTab(name){
+function showTab(name,el){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
-  event.target.classList.add('active');
+  if(el)el.classList.add('active');
   if(name==='weekly')renderWeekly();
   if(name==='charts')renderCharts();
   if(name==='log'){refreshLog();setCurrentTime();}
