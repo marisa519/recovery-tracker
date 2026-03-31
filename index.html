@@ -1,5 +1,5 @@
 
-<style>body{margin:0}img{display:block;max-width:100%}</style><script>(function(){function S(){var d={};Object.defineProperties(this,{getItem:{value:function(k){return d.hasOwnProperty(k)?d[k]:null}},setItem:{value:function(k,v){var o=d[k]||null;d[k]=String(v);this.length=Object.keys(d).length}},removeItem:{value:function(k){delete d[k];this.length=Object.keys(d).length}},clear:{value:function(){d={};this.length=0}},key:{value:function(i){return Object.keys(d)[i]||null}},length:{value:0,writable:true}})}try{window.localStorage}catch(e){Object.defineProperty(window,'localStorage',{value:new S(),configurable:true})}try{window.sessionStorage}catch(e){Object.defineProperty(window,'sessionStorage',{value:new S(),configurable:true})}var hp=history.pushState;history.pushState=function(){try{hp.apply(history,arguments)}catch(e){}};var hr=history.replaceState;history.replaceState=function(){try{hr.apply(history,arguments)}catch(e){}};try{document.cookie}catch(e){Object.defineProperty(document,'cookie',{get:function(){return ''},set:function(){},configurable:true})}})();</script><script>document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();var id=a.getAttribute('href').slice(1);if(!id)return;var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}try{history.replaceState(null,'','#'+id)}catch(e){}});</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Recovery Tracker</title>
@@ -137,14 +137,12 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
 <div id="panel-weekly" class="panel"><div class="week-nav"><button onclick="changeWeek(-1)">◀</button><span id="weekLabel"></span><button onclick="changeWeek(1)">▶</button></div><div id="weeklyContent"></div></div>
 <div id="panel-charts" class="panel"><div class="card"><h3>BP Trend (30 days)</h3><div class="chart-container"><canvas id="bpChart"></canvas></div></div><div class="card"><h3>Water &amp; Steps</h3><div class="chart-container"><canvas id="wsChart"></canvas></div></div></div>
 <div id="panel-analysis" class="panel"><div class="card"><h3>BP Analysis</h3><div class="row"><div class="field"><label>From</label><input type="date" id="aFrom"></div><div class="field"><label>To</label><input type="date" id="aTo"></div></div><button class="btn btn-primary" onclick="runAnalysis()">Analyze</button><div id="analysisResult" style="margin-top:12px;"></div></div></div>
-<div id="panel-export" class="panel"><div class="card"><h3>BP Log Export</h3><div class="row"><div class="field"><label>From</label><input type="date" id="eFrom"></div><div class="field"><label>To</label><input type="date" id="eTo"></div></div><button class="btn btn-primary" onclick="renderExport()" style="margin-bottom:8px;">Generate</button>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn btn-secondary" onclick="downloadCSV()">Download CSV</button><button class="btn btn-secondary" onclick="screenshotExport()">📸 Screenshot View</button><button class="btn btn-secondary" onclick="copyPlainText()">📋 Copy as Text</button></div>
-    <div id="exportTable" style="margin-top:12px;overflow-x:auto;"></div></div></div>
+<div id="panel-export" class="panel"><div class="card"><h3>BP Log Export</h3><div class="row"><div class="field"><label>From</label><input type="date" id="eFrom"></div><div class="field"><label>To</label><input type="date" id="eTo"></div></div><button class="btn btn-primary" onclick="renderExport()" style="margin-bottom:8px;">Generate</button><button class="btn btn-secondary" onclick="downloadCSV()">Download CSV</button><div id="exportTable" style="margin-top:12px;overflow-x:auto;"></div></div></div>
 
 <div class="modal-overlay" id="settingsModal">
   <div class="modal">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><h3>Data &amp; Backup</h3><button onclick="document.getElementById('settingsModal').classList.remove('open')" style="background:none;border:none;font-size:1.2rem;cursor:pointer;">✕</button></div>
-    <div class="card"><h3>Manual Backup</h3><button class="btn btn-secondary" onclick="showStorageDiag()" style="width:100%;margin-bottom:8px;font-size:.8rem;">🔍 Show All Stored Data</button><div id="diagOutput" style="display:none;margin-bottom:8px;padding:8px;background:#f0f0f0;border-radius:6px;font-size:.75rem;max-height:200px;overflow-y:auto;word-break:break-all;"></div><button class="btn btn-primary" onclick="downloadBackup()" style="width:100%;margin-bottom:8px;">Download Backup</button><label class="btn btn-secondary" style="width:100%;cursor:pointer;text-align:center;"><input type="file" accept=".json" style="display:none;" onchange="restoreBackup(this)">Restore from File</label></div>
+    <div class="card"><h3>Manual Backup</h3><button class="btn btn-primary" onclick="downloadBackup()" style="width:100%;margin-bottom:8px;">Download Backup</button><label class="btn btn-secondary" style="width:100%;cursor:pointer;text-align:center;"><input type="file" accept=".json" style="display:none;" onchange="restoreBackup(this)">Restore from File</label></div>
     <div class="card"><h3>Firebase Cloud Sync</h3>
       <div class="field" style="margin-bottom:8px;"><label>API Key</label><input id="fbKey" placeholder="AIza..."></div>
       <div class="field" style="margin-bottom:8px;"><label>Database URL</label><input id="fbUrl" placeholder="https://...firebaseio.com"></div>
@@ -178,22 +176,11 @@ var DATA={bp:[],water:[],steps:[],appleSteps:{}};
 function loadData(){try{var d=localStorage.getItem(STORE_KEY);if(d)DATA=JSON.parse(d);}catch(e){}}
 function saveData(){try{localStorage.setItem(STORE_KEY,JSON.stringify(DATA));syncToFirebase();}catch(e){}}
 try{loadData();}catch(e){}
-// Broad migration: check all known keys AND scan all localStorage
-try{var oldKeys=['recoveryData','recovery_data','recoveryTrackerData','RecoveryTracker','recovery-tracker','health_tracker','healthTracker'];
-  oldKeys.forEach(function(k){try{var d=localStorage.getItem(k);if(d){var p=JSON.parse(d);if(p.bp&&p.bp.length){
-  p.bp.forEach(function(e){var dup=DATA.bp.some(function(x){return x.date===e.date&&x.time===e.time&&x.sys===e.sys;});if(!dup)DATA.bp.push(e);});
-  (p.water||[]).forEach(function(e){DATA.water.push(e);});(p.steps||[]).forEach(function(e){DATA.steps.push(e);});
-  if(p.appleSteps){for(var k2 in p.appleSteps){DATA.appleSteps[k2]=p.appleSteps[k2];}}
-  saveData();localStorage.removeItem(k);}}}catch(e){}});
-  // Also scan ALL localStorage keys for any JSON with a bp array
-  for(var i=0;i<localStorage.length;i++){try{var key=localStorage.key(i);if(key===STORE_KEY)continue;
-  var val=localStorage.getItem(key);if(val&&val.indexOf('"bp"')>-1){var p=JSON.parse(val);
-  if(p&&p.bp&&Array.isArray(p.bp)&&p.bp.length){p.bp.forEach(function(e){
-  var dup=DATA.bp.some(function(x){return x.date===e.date&&x.time===e.time&&x.sys===e.sys;});if(!dup)DATA.bp.push(e);});
-  (p.water||[]).forEach(function(e){DATA.water.push(e);});(p.steps||[]).forEach(function(e){DATA.steps.push(e);});
-  if(p.appleSteps){for(var k2 in p.appleSteps){DATA.appleSteps[k2]=p.appleSteps[k2];}}
-  saveData();}}}catch(e){}}
-}catch(e){}
+try{['recoveryData','recovery_data','recoveryTrackerData'].forEach(function(k){
+  var d=localStorage.getItem(k);if(d){var p=JSON.parse(d);if(p.bp&&p.bp.length){
+  p.bp.forEach(function(e){DATA.bp.push(e);});(p.water||[]).forEach(function(e){DATA.water.push(e);});
+  (p.steps||[]).forEach(function(e){DATA.steps.push(e);});if(p.appleSteps){for(var k2 in p.appleSteps){DATA.appleSteps[k2]=p.appleSteps[k2];}}
+  saveData();localStorage.removeItem(k);}}});}catch(e){}
 
 // === FIREBASE ===
 var fbDb=null,fbRef=null;
@@ -317,8 +304,8 @@ function renderWeekly(){try{
   html+='<div style="font-size:.8rem;color:#666;margin-top:4px;">💧 '+dayW+' oz | 👟 '+dayS.toLocaleString()+'</div></div>';}
   var summary='<div class="daily-totals"><div class="stat"><div class="val">'+(bpN?Math.round(totSys/bpN)+'/'+Math.round(totDia/bpN):'-')+'</div><div class="lbl">Avg BP</div></div>';
   summary+='<div class="stat"><div class="val">'+bpN+'</div><div class="lbl">Readings</div></div>';
-  summary+='<div class="stat"><div class="val">'+Math.round(totW/7)+'</div><div class="lbl">Avg Water/Day (oz)</div></div>';
-  summary+='<div class="stat"><div class="val">'+Math.round(totS/7).toLocaleString()+'</div><div class="lbl">Avg Steps/Day</div></div></div>';
+  summary+='<div class="stat"><div class="val">'+totW+'</div><div class="lbl">Water (oz)</div></div>';
+  summary+='<div class="stat"><div class="val">'+totS.toLocaleString()+'</div><div class="lbl">Steps</div></div></div>';
   var el=document.getElementById('weeklyContent');if(el)el.innerHTML=summary+html;
 }catch(e){console.log('renderWeekly error:',e);}}
 
@@ -403,57 +390,10 @@ function downloadCSV(){try{
   bps.forEach(function(e){csv+=e.date+','+e.time+','+e.sys+','+e.dia+','+e.pulse+',"'+(e.meds?e.meds.join(';'):'')+'"'+','+(e.symptoms?'"'+e.symptoms.join(';')+'"':'')+' \n';});
   var a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='bp-log.csv';a.click();
 }catch(e){}}
-function screenshotExport(){try{
-  var el=document.getElementById('exportTable');if(!el||!el.innerHTML){alert('Generate a table first');return;}
-  var win=window.open('','_blank');
-  win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;background:#fff;color:#1a1a1a;}table{width:100%;border-collapse:collapse;font-size:14px;}th,td{border:1px solid #e0e0e0;padding:10px;text-align:center;}th{background:#f8f9fa;font-weight:600;}tr:nth-child(even){background:#fafafa;}h2{margin-bottom:12px;}@media print{body{padding:0;}}</style></head><body>');
-  win.document.write('<h2>Blood Pressure Log</h2>');
-  win.document.write(el.innerHTML);
-  win.document.write('<p style="margin-top:12px;font-size:12px;color:#999;">Generated '+new Date().toLocaleDateString()+'</p>');
-  win.document.write('</body></html>');win.document.close();
-}catch(e){console.log('screenshot error:',e);}}
-function copyPlainText(){try{
-  var from=document.getElementById('eFrom').value;var to=document.getElementById('eTo').value;
-  if(!from||!to){alert('Select date range');return;}
-  var bps=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;}).sort(function(a,b){return (a.date+a.time)>(b.date+b.time)?1:-1;});
-  if(!bps.length){alert('No data in range');return;}
-  var txt='BLOOD PRESSURE LOG\n';
-  txt+='Date       Time   BP        Pulse  Meds              Symptoms\n';
-  txt+='---------- ------ --------- ------ ----------------- -----------------\n';
-  var ts=0,td=0;
-  bps.forEach(function(e){
-    ts+=e.sys;td+=e.dia;
-    var bp=String(e.sys)+'/'+String(e.dia);
-    txt+=e.date+' '+e.time+'  '+(bp+'         ').slice(0,10)+(String(e.pulse)+'      ').slice(0,7)+((e.meds?e.meds.join(', '):'-')+'                  ').slice(0,18)+(e.symptoms?e.symptoms.join(', '):'-')+'\n';
-  });
-  txt+='---------- ------ --------- ------ ----------------- -----------------\n';
-  txt+='Average           '+Math.round(ts/bps.length)+'/'+Math.round(td/bps.length)+'\n';
-  txt+='\nGenerated '+new Date().toLocaleDateString()+'\n';
-  navigator.clipboard.writeText(txt).then(function(){alert('Copied to clipboard!');}).catch(function(){
-    var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert('Copied to clipboard!');});
-}catch(e){console.log('copy error:',e);}}
 
 // === INIT ===
 try{setCurrentTime();}catch(e){}
 try{refreshLog();}catch(e){}
 try{updateTotals();}catch(e){}
-
-function showStorageDiag(){
-  var el=document.getElementById('diagOutput');
-  if(!el)return;
-  el.style.display='block';
-  var html='<b>localStorage keys ('+localStorage.length+'):</b><br>';
-  for(var i=0;i<localStorage.length;i++){
-    var k=localStorage.key(i);
-    var v=localStorage.getItem(k);
-    var hasBP=v&&v.indexOf('"bp"')>-1;
-    html+='<div style="margin:4px 0;padding:4px;background:'+(hasBP?'#d4edda':'#fff')+';border-radius:4px;">';
-    html+='<b>'+k+'</b> ('+v.length+' chars)';
-    if(hasBP){html+=' ✅ HAS BP DATA';try{var d=JSON.parse(v);html+=' — '+d.bp.length+' readings';}catch(e){}}
-    html+='</div>';
-  }
-  html+='<br><b>Current DATA.bp:</b> '+DATA.bp.length+' readings';
-  el.innerHTML=html;
-}
 </script>
 </body></html>
