@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<style>body{margin:0}img{display:block;max-width:100%}</style><script>(function(){function S(){var d={};Object.defineProperties(this,{getItem:{value:function(k){return d.hasOwnProperty(k)?d[k]:null}},setItem:{value:function(k,v){var o=d[k]||null;d[k]=String(v);this.length=Object.keys(d).length}},removeItem:{value:function(k){delete d[k];this.length=Object.keys(d).length}},clear:{value:function(){d={};this.length=0}},key:{value:function(i){return Object.keys(d)[i]||null}},length:{value:0,writable:true}})}try{window.localStorage}catch(e){Object.defineProperty(window,'localStorage',{value:new S(),configurable:true})}try{window.sessionStorage}catch(e){Object.defineProperty(window,'sessionStorage',{value:new S(),configurable:true})}var hp=history.pushState;history.pushState=function(){try{hp.apply(history,arguments)}catch(e){}};var hr=history.replaceState;history.replaceState=function(){try{hr.apply(history,arguments)}catch(e){}};try{document.cookie}catch(e){Object.defineProperty(document,'cookie',{get:function(){return ''},set:function(){},configurable:true})}})();</script><script>document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();var id=a.getAttribute('href').slice(1);if(!id)return;var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}try{history.replaceState(null,'','#'+id)}catch(e){}});</script><!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Recovery Tracker</title>
@@ -11,13 +11,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 .header{position:sticky;top:0;z-index:50;background:var(--bg);padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .header h1{font-size:1.1rem;}
 .sync-dot{width:10px;height:10px;border-radius:50%;background:#ccc;display:inline-block;margin-left:8px;}
-.sync-dot.connected{background:var(--green);}
-.sync-dot.error{background:var(--orange);}
+.sync-dot.connected{background:var(--green);}.sync-dot.error{background:var(--orange);}
 .tabs{display:flex;gap:4px;padding:8px 16px;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;}
 .tab{padding:8px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg);font-size:.85rem;cursor:pointer;white-space:nowrap;color:var(--fg);}
 .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-.panel{display:none;padding:12px 16px;}
-.panel.active{display:block;}
+.panel{display:none;padding:12px 16px;}.panel.active{display:block;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;}
 .card h3{font-size:.95rem;margin-bottom:10px;}
 .field{display:flex;flex-direction:column;gap:2px;}
@@ -29,8 +27,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 .bp-readings-row .field{flex:1 1 0%;min-width:0;}
 .bp-readings-row input{width:100%;min-width:0;padding:0 6px;font-size:14px;}
 .btn{height:42px;padding:0 18px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;justify-content:center;}
-.btn-primary{background:var(--accent);color:#fff;}
-.btn-secondary{background:var(--card);color:var(--fg);border:1px solid var(--border);}
+.btn-primary{background:var(--accent);color:#fff;}.btn-secondary{background:var(--card);color:var(--fg);border:1px solid var(--border);}
 .ws-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:nowrap;}
 .ws-row label{font-size:.75rem;color:#666;font-weight:600;white-space:nowrap;min-width:45px;}
 .ws-row input{height:42px;padding:0 10px;border:1px solid var(--border);border-radius:6px;font-size:.95rem;flex:1;min-width:0;-webkit-appearance:none;}
@@ -43,16 +40,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 .multi-select-dropdown input[type="checkbox"]{width:18px;height:18px;}
 .daily-totals{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
 .daily-totals .stat{text-align:center;padding:10px;background:var(--card);border-radius:8px;border:1px solid var(--border);}
-.daily-totals .stat .val{font-size:1.2rem;font-weight:700;}
-.daily-totals .stat .lbl{font-size:.7rem;color:#666;}
+.daily-totals .stat .val{font-size:1.2rem;font-weight:700;}.daily-totals .stat .lbl{font-size:.7rem;color:#666;}
 .chart-container{position:relative;height:280px;margin-bottom:12px;}
 .week-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 .week-nav button{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:8px 12px;cursor:pointer;}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
 .modal{background:var(--bg);border-radius:12px;padding:20px;max-width:400px;width:90%;max-height:80vh;overflow-y:auto;}
-.modal h3{margin-bottom:12px;}
-.modal .field{margin-bottom:10px;}
+.modal h3{margin-bottom:12px;}.modal .field{margin-bottom:10px;}
 .export-table{width:100%;border-collapse:collapse;font-size:.85rem;}
 .export-table th,.export-table td{border:1px solid var(--border);padding:8px;text-align:center;}
 .export-table th{background:var(--card);}
@@ -69,8 +64,7 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
 .chart-container{height:220px;}
 .multi-select-dropdown{position:fixed;left:10px;right:10px;top:auto;bottom:70px;max-height:50vh;overflow-y:auto;}
 }
-</style>
-</head><body>
+</style></head><body>
 <div class="header">
   <div style="display:flex;align-items:center;"><h1>Recovery Tracker</h1><span class="sync-dot" id="syncDot"></span></div>
   <button class="btn btn-secondary" style="font-size:.8rem;height:34px;padding:0 10px;" onclick="document.getElementById('settingsModal').classList.add('open')">⚙ Backup</button>
@@ -82,7 +76,6 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
   <button class="tab" data-tab="analysis">Analysis</button>
   <button class="tab" data-tab="export">Export</button>
 </div>
-
 <div id="panel-log" class="panel active">
   <div class="card">
     <h3>Blood Pressure &amp; Medications</h3>
@@ -93,8 +86,7 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
       <div class="field"><label>Pulse</label><input type="number" id="bpPulse" placeholder="72" inputmode="numeric"></div>
     </div>
     <div class="row" style="margin-top:8px;">
-      <div class="field">
-        <label>Symptoms</label>
+      <div class="field"><label>Symptoms</label>
         <div class="multi-select">
           <div class="multi-select-display" id="symptomDisplay" onclick="toggleDropdown('symptomDD')">Select...</div>
           <div class="multi-select-dropdown" id="symptomDD">
@@ -105,8 +97,7 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
           </div>
         </div>
       </div>
-      <div class="field">
-        <label>Medications</label>
+      <div class="field"><label>Medications</label>
         <div class="multi-select">
           <div class="multi-select-display" id="medDisplay" onclick="toggleDropdown('medDD')">Select...</div>
           <div class="multi-select-dropdown" id="medDD">
@@ -115,6 +106,7 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
             <label><input type="checkbox" name="med" value="Aspirin" onchange="updateDisplay('med','medDisplay')"> Aspirin</label>
             <label><input type="checkbox" name="med" value="Tylenol" onchange="updateDisplay('med','medDisplay')"> Tylenol</label>
             <label><input type="checkbox" name="med" value="Lipitor" onchange="updateDisplay('med','medDisplay')"> Lipitor</label>
+            <label><input type="checkbox" name="med" value="Skipped" onchange="updateDisplay('med','medDisplay')"> Skipped</label>
           </div>
         </div>
       </div>
@@ -126,274 +118,295 @@ input[type="time"],input[type="date"]{font-size:14px !important;min-height:42px 
     <div class="ws-row"><label>Water</label><input type="number" id="waterAmt" placeholder="oz" inputmode="numeric"><button class="btn btn-primary" onclick="logWater()">+ Add</button></div>
     <div class="ws-row"><label>Steps</label><input type="number" id="stepsAmt" placeholder="steps" inputmode="numeric"><button class="btn btn-primary" onclick="logSteps()">+ Add</button></div>
     <div style="display:flex;gap:12px;margin-top:4px;font-size:.85rem;color:#666;">
-      <span>💧 Today: <b id="waterTotal">0 oz</b></span>
-      <span>👟 Today: <b id="stepsTotal">0</b></span>
+      <span>💧 Today: <b id="waterTotal">0 oz</b></span><span>👟 Today: <b id="stepsTotal">0</b></span>
     </div>
     <div style="margin-top:8px;"><label style="font-size:.75rem;color:#666;cursor:pointer;">🍎 <input type="file" id="appleFile" accept=".zip,.xml" style="display:none;" onchange="importAppleHealth(this)">Import Apple Health</label></div>
   </div>
   <div class="card"><h3>Today's Log</h3><div id="entryList"><p style="color:#999;text-align:center;">No entries yet today</p></div></div>
 </div>
-
 <div id="panel-weekly" class="panel"><div class="week-nav"><button onclick="changeWeek(-1)">◀</button><span id="weekLabel"></span><button onclick="changeWeek(1)">▶</button></div><div id="weeklyContent"></div></div>
 <div id="panel-charts" class="panel"><div class="card"><h3>BP Trend (30 days)</h3><div class="chart-container"><canvas id="bpChart"></canvas></div></div><div class="card"><h3>Water &amp; Steps</h3><div class="chart-container"><canvas id="wsChart"></canvas></div></div></div>
 <div id="panel-analysis" class="panel"><div class="card"><h3>BP Analysis</h3><div class="row"><div class="field"><label>From</label><input type="date" id="aFrom"></div><div class="field"><label>To</label><input type="date" id="aTo"></div></div><button class="btn btn-primary" onclick="runAnalysis()">Analyze</button><div id="analysisResult" style="margin-top:12px;"></div></div></div>
-<div id="panel-export" class="panel"><div class="card"><h3>BP Log Export</h3><div class="row"><div class="field"><label>From</label><input type="date" id="eFrom"></div><div class="field"><label>To</label><input type="date" id="eTo"></div></div><button class="btn btn-primary" onclick="renderExport()" style="margin-bottom:8px;">Generate</button><button class="btn btn-secondary" onclick="downloadCSV()">Download CSV</button><div id="exportTable" style="margin-top:12px;overflow-x:auto;"></div></div></div>
-
-<div class="modal-overlay" id="settingsModal">
-  <div class="modal">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><h3>Data &amp; Backup</h3><button onclick="document.getElementById('settingsModal').classList.remove('open')" style="background:none;border:none;font-size:1.2rem;cursor:pointer;">✕</button></div>
-    <div class="card"><h3>Manual Backup</h3><button class="btn btn-primary" onclick="downloadBackup()" style="width:100%;margin-bottom:8px;">Download Backup</button><label class="btn btn-secondary" style="width:100%;cursor:pointer;text-align:center;"><input type="file" accept=".json" style="display:none;" onchange="restoreBackup(this)">Restore from File</label></div>
-    <div class="card"><h3>Firebase Cloud Sync</h3>
-      <div class="field" style="margin-bottom:8px;"><label>API Key</label><input id="fbKey" placeholder="AIza..."></div>
-      <div class="field" style="margin-bottom:8px;"><label>Database URL</label><input id="fbUrl" placeholder="https://...firebaseio.com"></div>
-      <div class="field" style="margin-bottom:8px;"><label>Project ID</label><input id="fbProj" placeholder="my-project-id"></div>
-      <div class="field" style="margin-bottom:8px;"><label>Sync Password</label><input id="fbPass" type="password" placeholder="your passphrase"></div>
-      <button class="btn btn-primary" onclick="connectFirebase()" style="width:100%;">Connect &amp; Sync</button>
-    </div>
+<div id="panel-export" class="panel"><div class="card"><h3>BP Log Export</h3><div class="row"><div class="field"><label>From</label><input type="date" id="eFrom"></div><div class="field"><label>To</label><input type="date" id="eTo"></div></div><button class="btn btn-primary" onclick="renderExport()" style="margin-bottom:8px;">Generate</button>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn btn-secondary" onclick="downloadCSV()">Download CSV</button><button class="btn btn-secondary" onclick="screenshotExport()">📸 Screenshot View</button><button class="btn btn-secondary" onclick="copyPlainText()">📋 Copy as Text</button></div>
+  <div id="exportTable" style="margin-top:12px;overflow-x:auto;"></div></div></div>
+<div class="modal-overlay" id="settingsModal"><div class="modal">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><h3>Data &amp; Backup</h3><button onclick="document.getElementById('settingsModal').classList.remove('open')" style="background:none;border:none;font-size:1.2rem;cursor:pointer;">✕</button></div>
+  <div class="card"><h3>Manual Backup</h3><button class="btn btn-secondary" onclick="showStorageDiag()" style="width:100%;margin-bottom:8px;font-size:.8rem;">🔍 Show All Stored Data</button><div id="diagOutput" style="display:none;margin-bottom:8px;padding:8px;background:#f0f0f0;border-radius:6px;font-size:.75rem;max-height:200px;overflow-y:auto;word-break:break-all;"></div><button class="btn btn-primary" onclick="downloadBackup()" style="width:100%;margin-bottom:8px;">Download Backup</button><label class="btn btn-secondary" style="width:100%;cursor:pointer;text-align:center;"><input type="file" accept=".json" style="display:none;" onchange="restoreBackup(this)">Restore from File</label></div>
+  <div class="card"><h3>Firebase Cloud Sync</h3>
+    <div class="field" style="margin-bottom:8px;"><label>API Key</label><input id="fbKey" placeholder="AIza..."></div>
+    <div class="field" style="margin-bottom:8px;"><label>Database URL</label><input id="fbUrl" placeholder="https://...firebaseio.com"></div>
+    <div class="field" style="margin-bottom:8px;"><label>Project ID</label><input id="fbProj" placeholder="my-project-id"></div>
+    <div class="field" style="margin-bottom:8px;"><label>Sync Password</label><input id="fbPass" type="password" placeholder="your passphrase"></div>
+    <button class="btn btn-primary" onclick="connectFirebase()" style="width:100%;">Connect &amp; Sync</button>
   </div>
-</div>
-<script>
+</div></div><script>
 function showTab(name,el){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
   var panel=document.getElementById('panel-'+name);
   if(panel)panel.classList.add('active');
   if(el)el.classList.add('active');
-  try{
-    if(name==='weekly')renderWeekly();
-    if(name==='charts')renderCharts();
-    if(name==='log'){refreshLog();setCurrentTime();}
-  }catch(e){console.log('Tab render error:',e);}
+  try{if(name==='weekly')renderWeekly();if(name==='charts')renderCharts();if(name==='log'){refreshLog();setCurrentTime();}}catch(e){}
 }
 document.getElementById('tabBar').addEventListener('click',function(e){
-  var btn=e.target.closest('[data-tab]');
-  if(btn)showTab(btn.getAttribute('data-tab'),btn);
+  var btn=e.target.closest('[data-tab]');if(btn)showTab(btn.getAttribute('data-tab'),btn);
 });
 </script><script>
-// === DATA ===
 var STORE_KEY='recovery_tracker_data';
 var DATA={bp:[],water:[],steps:[],appleSteps:{}};
 function loadData(){try{var d=localStorage.getItem(STORE_KEY);if(d)DATA=JSON.parse(d);}catch(e){}}
 function saveData(){try{localStorage.setItem(STORE_KEY,JSON.stringify(DATA));syncToFirebase();}catch(e){}}
 try{loadData();}catch(e){}
-try{['recoveryData','recovery_data','recoveryTrackerData'].forEach(function(k){
-  var d=localStorage.getItem(k);if(d){var p=JSON.parse(d);if(p.bp&&p.bp.length){
-  p.bp.forEach(function(e){DATA.bp.push(e);});(p.water||[]).forEach(function(e){DATA.water.push(e);});
-  (p.steps||[]).forEach(function(e){DATA.steps.push(e);});if(p.appleSteps){for(var k2 in p.appleSteps){DATA.appleSteps[k2]=p.appleSteps[k2];}}
-  saveData();localStorage.removeItem(k);}}});}catch(e){}
+try{var oldKeys=['recoveryData','recovery_data','recoveryTrackerData','RecoveryTracker','recovery-tracker','health_tracker','healthTracker'];
+oldKeys.forEach(function(k){try{var d=localStorage.getItem(k);if(d){var p=JSON.parse(d);if(p.bp&&p.bp.length){
+p.bp.forEach(function(e){var dup=DATA.bp.some(function(x){return x.date===e.date&&x.time===e.time&&x.sys===e.sys;});if(!dup)DATA.bp.push(e);});
+(p.water||[]).forEach(function(e){DATA.water.push(e);});(p.steps||[]).forEach(function(e){DATA.steps.push(e);});
+if(p.appleSteps){for(var k2 in p.appleSteps){DATA.appleSteps[k2]=p.appleSteps[k2];}}
+saveData();localStorage.removeItem(k);}}}catch(e){}});
+for(var i=0;i<localStorage.length;i++){try{var key=localStorage.key(i);if(key===STORE_KEY)continue;
+var val=localStorage.getItem(key);if(val&&val.indexOf('"bp"')>-1){var p=JSON.parse(val);
+if(p&&p.bp&&Array.isArray(p.bp)&&p.bp.length){p.bp.forEach(function(e){
+var dup=DATA.bp.some(function(x){return x.date===e.date&&x.time===e.time&&x.sys===e.sys;});if(!dup)DATA.bp.push(e);});
+saveData();}}}catch(e){}}
+}catch(e){}
 
-// === FIREBASE ===
 var fbDb=null,fbRef=null;
 function syncToFirebase(){try{if(fbDb&&fbRef){fbDb.ref(fbRef).set(DATA);}}catch(e){}}
 function syncFromFirebase(){try{if(fbDb&&fbRef){fbDb.ref(fbRef).on('value',function(snap){
-  var d=snap.val();if(d){DATA=d;if(!DATA.bp)DATA.bp=[];if(!DATA.water)DATA.water=[];if(!DATA.steps)DATA.steps=[];if(!DATA.appleSteps)DATA.appleSteps={};
-  saveData();refreshLog();updateTotals();}});}}catch(e){}}
+var d=snap.val();if(d){DATA=d;if(!DATA.bp)DATA.bp=[];if(!DATA.water)DATA.water=[];if(!DATA.steps)DATA.steps=[];if(!DATA.appleSteps)DATA.appleSteps={};
+saveData();refreshLog();updateTotals();}});}}catch(e){}}
 function connectFirebase(){try{
-  var key=document.getElementById('fbKey').value;
-  var url=document.getElementById('fbUrl').value;
-  var proj=document.getElementById('fbProj').value;
-  var pass=document.getElementById('fbPass').value;
-  if(!key||!url||!proj||!pass){alert('Fill all fields');return;}
-  localStorage.setItem('fb_config',JSON.stringify({key:key,url:url,proj:proj,pass:pass}));
-  loadFirebase(key,url,proj,pass);
-  document.getElementById('settingsModal').classList.remove('open');
+var key=document.getElementById('fbKey').value;var url=document.getElementById('fbUrl').value;
+var proj=document.getElementById('fbProj').value;var pass=document.getElementById('fbPass').value;
+if(!key||!url||!proj||!pass){alert('Fill all fields');return;}
+localStorage.setItem('fb_config',JSON.stringify({key:key,url:url,proj:proj,pass:pass}));
+loadFirebase(key,url,proj,pass);document.getElementById('settingsModal').classList.remove('open');
 }catch(e){alert('Error: '+e.message);}}
 function loadFirebase(key,url,proj,pass){
-  var s1=document.createElement('script');s1.src='https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js';
-  s1.onload=function(){var s2=document.createElement('script');s2.src='https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js';
-  s2.onload=function(){try{if(!firebase.apps.length)firebase.initializeApp({apiKey:key,databaseURL:url,projectId:proj});
-  fbDb=firebase.database();var h=0;for(var i=0;i<pass.length;i++){h=((h<<5)-h)+pass.charCodeAt(i);h|=0;}
-  fbRef='users/'+Math.abs(h)+'/data';syncFromFirebase();
-  document.getElementById('syncDot').classList.add('connected');
-  }catch(e){document.getElementById('syncDot').classList.add('error');}};document.head.appendChild(s2);};document.head.appendChild(s1);}
+var s1=document.createElement('script');s1.src='https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js';
+s1.onload=function(){var s2=document.createElement('script');s2.src='https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js';
+s2.onload=function(){try{if(!firebase.apps.length)firebase.initializeApp({apiKey:key,databaseURL:url,projectId:proj});
+fbDb=firebase.database();var h=0;for(var i=0;i<pass.length;i++){h=((h<<5)-h)+pass.charCodeAt(i);h|=0;}
+fbRef='users/'+Math.abs(h)+'/data';syncFromFirebase();
+document.getElementById('syncDot').classList.add('connected');
+}catch(e){document.getElementById('syncDot').classList.add('error');}};document.head.appendChild(s2);};document.head.appendChild(s1);}
 try{var fc=localStorage.getItem('fb_config');if(fc){var c=JSON.parse(fc);loadFirebase(c.key,c.url,c.proj,c.pass);}}catch(e){}
 
-// === DROPDOWNS ===
 function toggleDropdown(id){var dd=document.getElementById(id);if(dd)dd.classList.toggle('open');}
 document.addEventListener('click',function(e){if(!e.target.closest('.multi-select')){
-  document.querySelectorAll('.multi-select-dropdown').forEach(function(d){d.classList.remove('open');});}});
+document.querySelectorAll('.multi-select-dropdown').forEach(function(d){d.classList.remove('open');});}});
 function getChecked(name){var boxes=document.querySelectorAll('input[name="'+name+'"]:checked');var v=[];boxes.forEach(function(b){v.push(b.value);});return v;}
 function updateDisplay(name,did){var v=getChecked(name);var el=document.getElementById(did);if(el)el.textContent=v.length?v.join(', '):'Select...';}
 
-// === TIME ===
 function setCurrentTime(){var n=new Date();var el=document.getElementById('bpTime');if(el)el.value=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');}
-
-// === BP COLOR ===
 function bpColor(sys,dia){if(sys>=110&&sys<=140&&dia>=70&&dia<=90)return 'var(--green)';if(sys>=140||dia>=90)return 'var(--red)';return 'var(--orange)';}
 
-// === LOGGING ===
 function logEntry(){
-  var t=document.getElementById('bpTime');var s=document.getElementById('bpSys');var d=document.getElementById('bpDia');var p=document.getElementById('bpPulse');
-  var tv=t?t.value:'';var sv=s?parseInt(s.value):0;var dv=d?parseInt(d.value):0;var pv=p?parseInt(p.value):0;
-  var symptoms=getChecked('symptom');var meds=getChecked('med');
-  if(sv&&dv){var today=new Date().toISOString().slice(0,10);
-  DATA.bp.push({date:today,time:tv,sys:sv,dia:dv,pulse:pv,symptoms:symptoms,meds:meds});
-  saveData();if(s)s.value='';if(d)d.value='';if(p)p.value='';
-  document.querySelectorAll('input[name="symptom"],input[name="med"]').forEach(function(c){c.checked=false;});
-  updateDisplay('symptom','symptomDisplay');updateDisplay('med','medDisplay');
-  setCurrentTime();refreshLog();updateTotals();}
-}
+var t=document.getElementById('bpTime');var s=document.getElementById('bpSys');var d=document.getElementById('bpDia');var p=document.getElementById('bpPulse');
+var tv=t?t.value:'';var sv=s?parseInt(s.value):0;var dv=d?parseInt(d.value):0;var pv=p?parseInt(p.value):0;
+var symptoms=getChecked('symptom');var meds=getChecked('med');
+if(sv&&dv){var today=new Date().toISOString().slice(0,10);
+DATA.bp.push({date:today,time:tv,sys:sv,dia:dv,pulse:pv,symptoms:symptoms,meds:meds});
+saveData();if(s)s.value='';if(d)d.value='';if(p)p.value='';
+document.querySelectorAll('input[name="symptom"],input[name="med"]').forEach(function(c){c.checked=false;});
+updateDisplay('symptom','symptomDisplay');updateDisplay('med','medDisplay');
+setCurrentTime();refreshLog();updateTotals();}}
+
 function addWater(v){var today=new Date().toISOString().slice(0,10);DATA.water.push({date:today,time:new Date().toTimeString().slice(0,5),oz:v});saveData();updateTotals();}
 function addSteps(v){var today=new Date().toISOString().slice(0,10);DATA.steps.push({date:today,time:new Date().toTimeString().slice(0,5),count:v});saveData();updateTotals();}
 function logWater(){var el=document.getElementById('waterAmt');var v=el?parseInt(el.value):0;if(v>0){addWater(v);el.value='';}}
 function logSteps(){var el=document.getElementById('stepsAmt');var v=el?parseInt(el.value):0;if(v>0){addSteps(v);el.value='';}}
 
-// === REFRESH ===
 function refreshLog(){try{
-  var el=document.getElementById('entryList');if(!el)return;
-  var today=new Date().toISOString().slice(0,10);
-  var entries=DATA.bp.filter(function(e){return e.date===today;});
-  if(!entries.length){el.innerHTML='<p style="color:#999;text-align:center;">No entries yet today</p>';return;}
-  entries.sort(function(a,b){return a.time>b.time?1:-1;});
-  var h='';entries.forEach(function(e){var c=bpColor(e.sys,e.dia);
-  h+='<div style="padding:8px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">';
-  h+='<span style="font-size:.85rem;color:#666;">'+e.time+'</span>';
-  h+='<span style="font-weight:700;color:'+c+';">'+e.sys+'/'+e.dia+'</span>';
-  h+='<span style="font-size:.85rem;">'+(e.pulse||'-')+' bpm</span></div>';
-  if(e.meds&&e.meds.length)h+='<div style="padding:2px 8px;font-size:.75rem;color:#666;">💊 '+e.meds.join(', ')+'</div>';
-  if(e.symptoms&&e.symptoms.length)h+='<div style="padding:2px 8px;font-size:.75rem;color:#666;">🤒 '+e.symptoms.join(', ')+'</div>';});
-  el.innerHTML=h;}catch(e){console.log('refreshLog error:',e);}}
-function updateTotals(){try{var today=new Date().toISOString().slice(0,10);
-  var w=0;(DATA.water||[]).forEach(function(e){if(e.date===today)w+=e.oz;});
-  var s=0;(DATA.steps||[]).forEach(function(e){if(e.date===today)s+=e.count;});
-  s+=(DATA.appleSteps&&DATA.appleSteps[today])||0;
-  var we=document.getElementById('waterTotal');if(we)we.textContent=w+' oz';
-  var se=document.getElementById('stepsTotal');if(se)se.textContent=s.toLocaleString();
-}catch(e){}}
+var el=document.getElementById('entryList');if(!el)return;
+var today=new Date().toISOString().slice(0,10);
+var entries=[];DATA.bp.forEach(function(e,i){if(e.date===today)entries.push({entry:e,idx:i});});
+if(!entries.length){el.innerHTML='<p style="color:#999;text-align:center;">No entries yet today</p>';return;}
+entries.sort(function(a,b){return a.entry.time>b.entry.time?1:-1;});
+var h='';entries.forEach(function(item){var e=item.entry;var i=item.idx;var c=bpColor(e.sys,e.dia);
+h+='<div style="padding:8px;border-bottom:1px solid var(--border);">';
+h+='<div style="display:flex;justify-content:space-between;align-items:center;">';
+h+='<span style="font-size:.85rem;color:#666;">'+e.time+'</span>';
+h+='<span style="font-weight:700;color:'+c+';">'+e.sys+'/'+e.dia+'</span>';
+h+='<span style="font-size:.85rem;">'+(e.pulse||'-')+' bpm</span>';
+h+='<span style="display:flex;gap:4px;">';
+h+='<button onclick="editBP('+i+')" style="background:none;border:none;cursor:pointer;font-size:.85rem;padding:2px 6px;">✏️</button>';
+h+='<button onclick="deleteBP('+i+')" style="background:none;border:none;cursor:pointer;font-size:.85rem;padding:2px 6px;">🗑️</button>';
+h+='</span></div>';
+if(e.meds&&e.meds.length)h+='<div style="padding:2px 0;font-size:.75rem;color:#666;">💊 '+e.meds.join(', ')+'</div>';
+if(e.symptoms&&e.symptoms.length)h+='<div style="padding:2px 0;font-size:.75rem;color:#666;">🤒 '+e.symptoms.join(', ')+'</div>';
+h+='</div>';});
+el.innerHTML=h;}catch(e){}}
 
-// === BACKUP ===
-function downloadBackup(){var b=JSON.stringify(DATA,null,2);var a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(b);a.download='recovery-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();}
-function restoreBackup(input){var f=input.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){try{DATA=JSON.parse(e.target.result);saveData();refreshLog();updateTotals();alert('Restored!');}catch(e){alert('Invalid file');}};r.readAsText(f);}
+function editBP(idx){
+var e=DATA.bp[idx];if(!e)return;
+document.getElementById('bpTime').value=e.time||'';
+document.getElementById('bpSys').value=e.sys||'';
+document.getElementById('bpDia').value=e.dia||'';
+document.getElementById('bpPulse').value=e.pulse||'';
+document.querySelectorAll('input[name="symptom"]').forEach(function(c){c.checked=e.symptoms&&e.symptoms.indexOf(c.value)>-1;});
+updateDisplay('symptom','symptomDisplay');
+document.querySelectorAll('input[name="med"]').forEach(function(c){c.checked=e.meds&&e.meds.indexOf(c.value)>-1;});
+updateDisplay('med','medDisplay');
+DATA.bp.splice(idx,1);saveData();refreshLog();
+window.scrollTo({top:0,behavior:'smooth'});}
+function deleteBP(idx){if(confirm('Delete this reading?')){DATA.bp.splice(idx,1);saveData();refreshLog();updateTotals();}}
 
-// === APPLE HEALTH ===
+function updateTotals(){
+var today=new Date().toISOString().slice(0,10);
+var w=0;(DATA.water||[]).forEach(function(e){if(e.date===today)w+=e.oz;});
+var s=0;(DATA.steps||[]).forEach(function(e){if(e.date===today)s+=e.count;});s+=(DATA.appleSteps&&DATA.appleSteps[today])||0;
+var we=document.getElementById('waterTotal');if(we)we.textContent=w+' oz';
+var se=document.getElementById('stepsTotal');if(se)se.textContent=s.toLocaleString();}
+
+function downloadBackup(){var b=JSON.stringify(DATA,null,2);var a=document.createElement('a');
+a.href='data:application/json;charset=utf-8,'+encodeURIComponent(b);
+a.download='recovery-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();}
+function restoreBackup(input){var f=input.files[0];if(!f)return;var r=new FileReader();
+r.onload=function(){try{DATA=JSON.parse(r.result);saveData();refreshLog();updateTotals();alert('Restored!');}catch(e){alert('Invalid file');}};r.readAsText(f);}
+
 function importAppleHealth(input){try{var f=input.files[0];if(!f)return;
-  if(f.name.endsWith('.xml')){var r=new FileReader();r.onload=function(e){parseHealthXML(e.target.result);};r.readAsText(f);}
-  else{var sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/jszip@3/dist/jszip.min.js';sc.onload=function(){
-  var r2=new FileReader();r2.onload=function(e){JSZip.loadAsync(e.target.result).then(function(z){
-  var xf=z.file('apple_health_export/export.xml');if(xf)xf.async('string').then(parseHealthXML);});};r2.readAsArrayBuffer(f);};document.head.appendChild(sc);}}catch(e){alert('Import error');}}
-function parseHealthXML(xml){try{var p=new DOMParser();var doc=p.parseFromString(xml,'text/xml');
-  var recs=doc.querySelectorAll('Record[type="HKQuantityTypeIdentifierStepCount"]');
-  var days={};recs.forEach(function(r){var d=r.getAttribute('startDate').slice(0,10);var v=parseFloat(r.getAttribute('value'));days[d]=(days[d]||0)+Math.round(v);});
-  for(var d in days){DATA.appleSteps[d]=days[d];}saveData();updateTotals();alert('Imported '+Object.keys(days).length+' days of steps!');}catch(e){alert('Parse error');}}
+if(f.name.endsWith('.zip')){var r=new FileReader();r.onload=function(){alert('ZIP import requires JSZip library. Please export as XML instead, or upload the export.xml file from inside the ZIP.');};r.readAsArrayBuffer(f);}
+else{var r=new FileReader();r.onload=function(){var xml=r.result;var parser=new DOMParser();var doc=parser.parseFromString(xml,'text/xml');
+var records=doc.querySelectorAll('Record[type="HKQuantityTypeIdentifierStepCount"]');
+var imported=0;records.forEach(function(rec){var d=rec.getAttribute('startDate');if(d){var day=d.slice(0,10);
+var v=parseFloat(rec.getAttribute('value'))||0;if(!DATA.appleSteps)DATA.appleSteps={};
+if(!DATA.appleSteps[day])DATA.appleSteps[day]=0;DATA.appleSteps[day]+=Math.round(v);imported++;}});
+saveData();updateTotals();alert('Imported '+imported+' step records');};r.readAsText(f);}}catch(e){alert('Error: '+e.message);}}
 
-// === WEEKLY ===
 var weekOffset=0;
 function changeWeek(dir){weekOffset+=dir;renderWeekly();}
 function renderWeekly(){try{
-  var now=new Date();now.setDate(now.getDate()+weekOffset*7);
-  var day=now.getDay();var mon=new Date(now);mon.setDate(mon.getDate()-((day+6)%7));
-  var sun=new Date(mon);sun.setDate(sun.getDate()+6);
-  var lbl=document.getElementById('weekLabel');
-  if(lbl)lbl.textContent=mon.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' - '+sun.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-  var html='';var totSys=0,totDia=0,bpN=0,totW=0,totS=0;
-  for(var i=0;i<7;i++){var d=new Date(mon);d.setDate(d.getDate()+i);var ds=d.toISOString().slice(0,10);
-  var dayBP=DATA.bp.filter(function(e){return e.date===ds;});
-  var dayW=0;(DATA.water||[]).forEach(function(e){if(e.date===ds)dayW+=e.oz;});
-  var dayS=0;(DATA.steps||[]).forEach(function(e){if(e.date===ds)dayS+=e.count;});dayS+=(DATA.appleSteps&&DATA.appleSteps[ds])||0;
-  totW+=dayW;totS+=dayS;
-  html+='<div class="card"><h3>'+d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+'</h3>';
-  if(dayBP.length){dayBP.sort(function(a,b){return a.time>b.time?1:-1;});dayBP.forEach(function(e){
-  var c=bpColor(e.sys,e.dia);totSys+=e.sys;totDia+=e.dia;bpN++;
-  html+='<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);">';
-  html+='<span style="font-size:.85rem;color:#666;">'+e.time+'</span>';
-  html+='<span style="font-weight:700;color:'+c+';">'+e.sys+'/'+e.dia+'</span>';
-  html+='<span style="font-size:.85rem;">'+(e.pulse||'-')+' bpm</span></div>';
-  if(e.meds&&e.meds.length)html+='<div style="font-size:.75rem;color:#666;">💊 '+e.meds.join(', ')+'</div>';
-  if(e.symptoms&&e.symptoms.length)html+='<div style="font-size:.75rem;color:#666;">🤒 '+e.symptoms.join(', ')+'</div>';});}
-  else html+='<p style="color:#999;font-size:.85rem;">No readings</p>';
-  html+='<div style="font-size:.8rem;color:#666;margin-top:4px;">💧 '+dayW+' oz | 👟 '+dayS.toLocaleString()+'</div></div>';}
-  var summary='<div class="daily-totals"><div class="stat"><div class="val">'+(bpN?Math.round(totSys/bpN)+'/'+Math.round(totDia/bpN):'-')+'</div><div class="lbl">Avg BP</div></div>';
-  summary+='<div class="stat"><div class="val">'+bpN+'</div><div class="lbl">Readings</div></div>';
-  summary+='<div class="stat"><div class="val">'+totW+'</div><div class="lbl">Water (oz)</div></div>';
-  summary+='<div class="stat"><div class="val">'+totS.toLocaleString()+'</div><div class="lbl">Steps</div></div></div>';
-  var el=document.getElementById('weeklyContent');if(el)el.innerHTML=summary+html;
-}catch(e){console.log('renderWeekly error:',e);}}
-
-// === CHARTS ===
-var bpChartObj=null,wsChartObj=null;
-function renderCharts(){try{
-  var last30=[];for(var i=29;i>=0;i--){var d=new Date();d.setDate(d.getDate()-i);last30.push(d.toISOString().slice(0,10));}
-  var sysAvg=[],diaAvg=[],pulseAvg=[],labels=[],waterArr=[],stepsArr=[];
-  last30.forEach(function(ds){var bps=DATA.bp.filter(function(e){return e.date===ds;});
-  if(bps.length){var sa=0,da=0,pa=0;bps.forEach(function(e){sa+=e.sys;da+=e.dia;pa+=e.pulse;});
-  sysAvg.push(Math.round(sa/bps.length));diaAvg.push(Math.round(da/bps.length));pulseAvg.push(Math.round(pa/bps.length));}
-  else{sysAvg.push(null);diaAvg.push(null);pulseAvg.push(null);}
-  var w=0;(DATA.water||[]).forEach(function(e){if(e.date===ds)w+=e.oz;});waterArr.push(w);
-  var s=0;(DATA.steps||[]).forEach(function(e){if(e.date===ds)s+=e.count;});s+=(DATA.appleSteps&&DATA.appleSteps[ds])||0;stepsArr.push(s);
-  labels.push(ds.slice(5));});
-  if(bpChartObj)bpChartObj.destroy();
-  var ctx=document.getElementById('bpChart');
-  if(ctx)bpChartObj=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[
-  {label:'Systolic',data:sysAvg,borderColor:'#ea4335',tension:.3,spanGaps:true},
-  {label:'Diastolic',data:diaAvg,borderColor:'#4a90d9',tension:.3,spanGaps:true},
-  {label:'Pulse',data:pulseAvg,borderColor:'#34a853',tension:.3,spanGaps:true}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:false}}}});
-  if(wsChartObj)wsChartObj.destroy();
-  var ctx2=document.getElementById('wsChart');
-  if(ctx2)wsChartObj=new Chart(ctx2,{type:'bar',data:{labels:labels,datasets:[
-  {label:'Water (oz)',data:waterArr,backgroundColor:'rgba(74,144,217,0.5)',yAxisID:'y'},
-  {label:'Steps',data:stepsArr,backgroundColor:'rgba(52,168,83,0.5)',yAxisID:'y1'}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{position:'left',title:{display:true,text:'oz'}},y1:{position:'right',title:{display:true,text:'Steps'},grid:{drawOnChartArea:false}}}}});
-}catch(e){console.log('renderCharts error:',e);}}
-
-// === ANALYSIS ===
-function runAnalysis(){try{
-  var from=document.getElementById('aFrom').value;var to=document.getElementById('aTo').value;
-  if(!from||!to){alert('Select date range');return;}
-  var bps=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;});
-  if(!bps.length){document.getElementById('analysisResult').innerHTML='<p>No data in range</p>';return;}
-  var hi={sys:0,dia:0},lo={sys:999,dia:999},ts=0,td=0;
-  bps.forEach(function(e){if(e.sys>hi.sys)hi={sys:e.sys,dia:e.dia,date:e.date,time:e.time};
-  if(e.sys<lo.sys)lo={sys:e.sys,dia:e.dia,date:e.date,time:e.time};ts+=e.sys;td+=e.dia;});
-  var as=Math.round(ts/bps.length),ad=Math.round(td/bps.length);
-  var ac=bpColor(as,ad);
-  var h='<div style="margin-bottom:12px;"><b>'+bps.length+'</b> readings from '+from+' to '+to+'</div>';
-  h+='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;">';
-  h+='<div class="stat" style="text-align:center;padding:10px;background:var(--card);border-radius:8px;border:1px solid var(--border);"><div style="font-weight:700;color:var(--red);">'+hi.sys+'/'+hi.dia+'</div><div style="font-size:.7rem;color:#666;">Highest ('+hi.date+')</div></div>';
-  h+='<div class="stat" style="text-align:center;padding:10px;background:var(--card);border-radius:8px;border:1px solid var(--border);"><div style="font-weight:700;color:var(--green);">'+lo.sys+'/'+lo.dia+'</div><div style="font-size:.7rem;color:#666;">Lowest ('+lo.date+')</div></div>';
-  h+='<div class="stat" style="text-align:center;padding:10px;background:var(--card);border-radius:8px;border:1px solid var(--border);"><div style="font-weight:700;color:'+ac+';">'+as+'/'+ad+'</div><div style="font-size:.7rem;color:#666;">Average</div></div></div>';
-  // Correlations
-  var days={};bps.forEach(function(e){if(!days[e.date])days[e.date]={sys:[],dia:[]};days[e.date].sys.push(e.sys);days[e.date].dia.push(e.dia);});
-  var dArr=Object.keys(days).sort();if(dArr.length>=3){
-  var sysA=[],wA=[],stA=[];dArr.forEach(function(d){
-  var sa=0;days[d].sys.forEach(function(v){sa+=v;});sysA.push(sa/days[d].sys.length);
-  var w=0;(DATA.water||[]).forEach(function(e){if(e.date===d)w+=e.oz;});wA.push(w);
-  var s=0;(DATA.steps||[]).forEach(function(e){if(e.date===d)s+=e.count;});s+=(DATA.appleSteps&&DATA.appleSteps[d])||0;stA.push(s);});
-  function corr(a,b){var n=a.length;var sa=0,sb=0,sab=0,sa2=0,sb2=0;
-  for(var i=0;i<n;i++){sa+=a[i];sb+=b[i];sab+=a[i]*b[i];sa2+=a[i]*a[i];sb2+=b[i]*b[i];}
-  var num=n*sab-sa*sb;var den=Math.sqrt((n*sa2-sa*sa)*(n*sb2-sb*sb));return den?num/den:0;}
-  function cLabel(r){var a=Math.abs(r);if(a>.7)return 'Strong';if(a>.4)return 'Moderate';if(a>.2)return 'Weak';return 'None';}
-  var cSW=corr(sysA,wA),cSS=corr(sysA,stA);
-  h+='<div class="card" style="margin-top:8px;"><h3>Correlations</h3>';
-  h+='<div style="padding:4px 0;">BP ↔ Water: <b>'+cSW.toFixed(2)+'</b> ('+cLabel(cSW)+')</div>';
-  h+='<div style="padding:4px 0;">BP ↔ Steps: <b>'+cSS.toFixed(2)+'</b> ('+cLabel(cSS)+')</div></div>';}
-  document.getElementById('analysisResult').innerHTML=h;
-}catch(e){console.log('analysis error:',e);}}
-
-// === EXPORT ===
-function renderExport(){try{
-  var from=document.getElementById('eFrom').value;var to=document.getElementById('eTo').value;
-  if(!from||!to){alert('Select date range');return;}
-  var bps=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;}).sort(function(a,b){return (a.date+a.time)>(b.date+b.time)?1:-1;});
-  if(!bps.length){document.getElementById('exportTable').innerHTML='<p>No data</p>';return;}
-  var h='<table class="export-table"><thead><tr><th>Date</th><th>Time</th><th>Systolic</th><th>Diastolic</th><th>Pulse</th><th>Meds</th><th>Symptoms</th></tr></thead><tbody>';
-  var ts=0,td=0;bps.forEach(function(e){var c=bpColor(e.sys,e.dia);ts+=e.sys;td+=e.dia;
-  h+='<tr><td>'+e.date+'</td><td>'+e.time+'</td><td style="color:'+c+';font-weight:700;">'+e.sys+'</td><td style="color:'+c+';font-weight:700;">'+e.dia+'</td><td>'+e.pulse+'</td>';
-  h+='<td>'+(e.meds?e.meds.join(', '):'-')+'</td><td>'+(e.symptoms?e.symptoms.join(', '):'-')+'</td></tr>';});
-  var as=Math.round(ts/bps.length),ad=Math.round(td/bps.length),ac=bpColor(as,ad);
-  h+='<tr style="font-weight:700;background:var(--card);"><td colspan="2">Average</td><td style="color:'+ac+';">'+as+'</td><td style="color:'+ac+';">'+ad+'</td><td colspan="3"></td></tr>';
-  h+='</tbody></table>';document.getElementById('exportTable').innerHTML=h;
-}catch(e){console.log('export error:',e);}}
-function downloadCSV(){try{
-  var bps=DATA.bp.sort(function(a,b){return (a.date+a.time)>(b.date+b.time)?1:-1;});
-  var csv='Date,Time,Systolic,Diastolic,Pulse,Medications,Symptoms\n';
-  bps.forEach(function(e){csv+=e.date+','+e.time+','+e.sys+','+e.dia+','+e.pulse+',"'+(e.meds?e.meds.join(';'):'')+'"'+','+(e.symptoms?'"'+e.symptoms.join(';')+'"':'')+' \n';});
-  var a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='bp-log.csv';a.click();
+var now=new Date();now.setDate(now.getDate()+weekOffset*7);
+var day=now.getDay();var mon=new Date(now);mon.setDate(mon.getDate()-((day+6)%7));
+var sun=new Date(mon);sun.setDate(sun.getDate()+6);
+var lbl=document.getElementById('weekLabel');
+if(lbl)lbl.textContent=mon.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' - '+sun.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+var html='';var totSys=0,totDia=0,bpN=0,totW=0,totS=0;
+for(var i=0;i<7;i++){var d=new Date(mon);d.setDate(d.getDate()+i);var ds=d.toISOString().slice(0,10);
+var dayBP=DATA.bp.filter(function(e){return e.date===ds;});
+var dayW=0;(DATA.water||[]).forEach(function(e){if(e.date===ds)dayW+=e.oz;});
+var dayS=0;(DATA.steps||[]).forEach(function(e){if(e.date===ds)dayS+=e.count;});dayS+=(DATA.appleSteps&&DATA.appleSteps[ds])||0;
+totW+=dayW;totS+=dayS;
+html+='<div class="card"><h3>'+d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+'</h3>';
+if(dayBP.length){dayBP.sort(function(a,b){return a.time>b.time?1:-1;});dayBP.forEach(function(e){
+var c=bpColor(e.sys,e.dia);totSys+=e.sys;totDia+=e.dia;bpN++;
+h2='<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);">';
+h2+='<span style="font-size:.85rem;color:#666;">'+e.time+'</span>';
+h2+='<span style="font-weight:700;color:'+c+';">'+e.sys+'/'+e.dia+'</span>';
+h2+='<span style="font-size:.85rem;">'+(e.pulse||'-')+' bpm</span></div>';
+if(e.meds&&e.meds.length)h2+='<div style="font-size:.75rem;color:#666;">💊 '+e.meds.join(', ')+'</div>';
+if(e.symptoms&&e.symptoms.length)h2+='<div style="font-size:.75rem;color:#666;">🤒 '+e.symptoms.join(', ')+'</div>';
+html+=h2;});}
+else html+='<p style="color:#999;font-size:.85rem;">No readings</p>';
+html+='<div style="font-size:.8rem;color:#666;margin-top:4px;">💧 '+dayW+' oz | 👟 '+dayS.toLocaleString()+'</div></div>';}
+var summary='<div class="daily-totals"><div class="stat"><div class="val">'+(bpN?Math.round(totSys/bpN)+'/'+Math.round(totDia/bpN):'-')+'</div><div class="lbl">Avg BP</div></div>';
+summary+='<div class="stat"><div class="val">'+bpN+'</div><div class="lbl">Readings</div></div>';
+summary+='<div class="stat"><div class="val">'+Math.round(totW/7)+'</div><div class="lbl">Avg Water/Day (oz)</div></div>';
+summary+='<div class="stat"><div class="val">'+Math.round(totS/7).toLocaleString()+'</div><div class="lbl">Avg Steps/Day</div></div></div>';
+var el=document.getElementById('weeklyContent');if(el)el.innerHTML=summary+html;
 }catch(e){}}
 
-// === INIT ===
-try{setCurrentTime();}catch(e){}
-try{refreshLog();}catch(e){}
-try{updateTotals();}catch(e){}
-</script>
-</body></html>
+var bpChartInst=null,wsChartInst=null;
+function renderCharts(){try{
+var days=[];var now=new Date();for(var i=29;i>=0;i--){var d=new Date(now);d.setDate(d.getDate()-i);days.push(d.toISOString().slice(0,10));}
+var sysData=[],diaData=[],pulseData=[],waterData=[],stepsData=[],labels=[];
+days.forEach(function(ds){labels.push(ds.slice(5));
+var dayBP=DATA.bp.filter(function(e){return e.date===ds;});
+if(dayBP.length){var s=0,d=0,p=0;dayBP.forEach(function(e){s+=e.sys;d+=e.dia;p+=e.pulse||0;});
+sysData.push(Math.round(s/dayBP.length));diaData.push(Math.round(d/dayBP.length));pulseData.push(Math.round(p/dayBP.length));}
+else{sysData.push(null);diaData.push(null);pulseData.push(null);}
+var w=0;(DATA.water||[]).forEach(function(e){if(e.date===ds)w+=e.oz;});waterData.push(w);
+var st=0;(DATA.steps||[]).forEach(function(e){if(e.date===ds)st+=e.count;});st+=(DATA.appleSteps&&DATA.appleSteps[ds])||0;stepsData.push(st);});
+if(bpChartInst)bpChartInst.destroy();
+var ctx1=document.getElementById('bpChart');if(ctx1){bpChartInst=new Chart(ctx1,{type:'line',data:{labels:labels,datasets:[
+{label:'Systolic',data:sysData,borderColor:'#ea4335',tension:.3,spanGaps:true},
+{label:'Diastolic',data:diaData,borderColor:'#4a90d9',tension:.3,spanGaps:true},
+{label:'Pulse',data:pulseData,borderColor:'#34a853',tension:.3,spanGaps:true}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});}
+if(wsChartInst)wsChartInst.destroy();
+var ctx2=document.getElementById('wsChart');if(ctx2){wsChartInst=new Chart(ctx2,{type:'bar',data:{labels:labels,datasets:[
+{label:'Water (oz)',data:waterData,backgroundColor:'#4a90d9',yAxisID:'y'},
+{label:'Steps',data:stepsData,backgroundColor:'#34a853',yAxisID:'y1'}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},
+scales:{y:{position:'left',title:{display:true,text:'oz'}},y1:{position:'right',title:{display:true,text:'Steps'},grid:{drawOnChartArea:false}}}}});}
+}catch(e){}}
+
+function runAnalysis(){try{
+var from=document.getElementById('aFrom').value;var to=document.getElementById('aTo').value;
+if(!from||!to){alert('Select date range');return;}
+var entries=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;});
+if(!entries.length){document.getElementById('analysisResult').innerHTML='<p>No data in range</p>';return;}
+var minS=999,maxS=0,minD=999,maxD=0,totS=0,totD=0;
+entries.forEach(function(e){if(e.sys<minS)minS=e.sys;if(e.sys>maxS)maxS=e.sys;if(e.dia<minD)minD=e.dia;if(e.dia>maxD)maxD=e.dia;totS+=e.sys;totD+=e.dia;});
+var h='<div class="card" style="margin-top:8px;"><h3>Results ('+entries.length+' readings)</h3>';
+h+='<table style="width:100%;font-size:.85rem;"><tr><th></th><th>Systolic</th><th>Diastolic</th></tr>';
+h+='<tr><td>Highest</td><td style="color:var(--red);font-weight:700;">'+maxS+'</td><td style="color:var(--red);font-weight:700;">'+maxD+'</td></tr>';
+h+='<tr><td>Lowest</td><td>'+minS+'</td><td>'+minD+'</td></tr>';
+h+='<tr><td>Average</td><td style="font-weight:700;">'+Math.round(totS/entries.length)+'</td><td style="font-weight:700;">'+Math.round(totD/entries.length)+'</td></tr></table>';
+var days={};entries.forEach(function(e){if(!days[e.date])days[e.date]={sys:[],dia:[]};days[e.date].sys.push(e.sys);days[e.date].dia.push(e.dia);});
+var dayKeys=Object.keys(days).sort();
+if(dayKeys.length>2){var avgSys=[],avgW=[],avgSt=[];
+dayKeys.forEach(function(d){var ds=days[d];avgSys.push(ds.sys.reduce(function(a,b){return a+b;},0)/ds.sys.length);
+var w=0;(DATA.water||[]).forEach(function(e){if(e.date===d)w+=e.oz;});avgW.push(w);
+var s=0;(DATA.steps||[]).forEach(function(e){if(e.date===d)s+=e.count;});s+=(DATA.appleSteps&&DATA.appleSteps[d])||0;avgSt.push(s);});
+function corr(a,b){var n=a.length;if(n<3)return 0;var ma=a.reduce(function(x,y){return x+y;},0)/n;var mb=b.reduce(function(x,y){return x+y;},0)/n;
+var num=0,da=0,db=0;for(var i=0;i<n;i++){num+=(a[i]-ma)*(b[i]-mb);da+=(a[i]-ma)*(a[i]-ma);db+=(b[i]-mb)*(b[i]-mb);}
+return da&&db?num/Math.sqrt(da*db):0;}
+function corrLabel(r){var a=Math.abs(r);if(a>.7)return 'Strong';if(a>.4)return 'Moderate';if(a>.2)return 'Weak';return 'None';}
+var r1=corr(avgSys,avgW),r2=corr(avgSys,avgSt);
+h+='<h3 style="margin-top:12px;">Correlations</h3>';
+h+='<p style="font-size:.85rem;">BP ↔ Water: <b>'+r1.toFixed(2)+'</b> ('+corrLabel(r1)+')</p>';
+h+='<p style="font-size:.85rem;">BP ↔ Steps: <b>'+r2.toFixed(2)+'</b> ('+corrLabel(r2)+')</p>';}
+h+='</div>';document.getElementById('analysisResult').innerHTML=h;}catch(e){}}
+
+function renderExport(){try{
+var from=document.getElementById('eFrom').value;var to=document.getElementById('eTo').value;
+if(!from||!to){alert('Select date range');return;}
+var entries=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;}).sort(function(a,b){return (a.date+a.time)>(b.date+b.time)?1:-1;});
+if(!entries.length){document.getElementById('exportTable').innerHTML='<p>No data</p>';return;}
+var h='<table class="export-table"><tr><th>Date</th><th>Time</th><th>Sys</th><th>Dia</th><th>Pulse</th><th>Meds</th><th>Symptoms</th></tr>';
+entries.forEach(function(e){var c=bpColor(e.sys,e.dia);
+h+='<tr><td>'+e.date+'</td><td>'+e.time+'</td><td style="color:'+c+';font-weight:700;">'+e.sys+'</td><td style="color:'+c+';font-weight:700;">'+e.dia+'</td><td>'+e.pulse+'</td><td>'+(e.meds||[]).join(', ')+'</td><td>'+(e.symptoms||[]).join(', ')+'</td></tr>';});
+h+='</table>';document.getElementById('exportTable').innerHTML=h;}catch(e){}}
+
+function downloadCSV(){
+var from=document.getElementById('eFrom').value;var to=document.getElementById('eTo').value;
+var entries=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;}).sort(function(a,b){return (a.date+a.time)>(b.date+b.time)?1:-1;});
+var csv='Date,Time,Systolic,Diastolic,Pulse,Medications,Symptoms\n';
+entries.forEach(function(e){csv+=e.date+','+e.time+','+e.sys+','+e.dia+','+e.pulse+',"'+(e.meds||[]).join('; ')+'",'+(e.symptoms||[]).join('; ')+'\n';});
+var a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='bp-log.csv';a.click();}
+
+function screenshotExport(){
+var from=document.getElementById('eFrom').value;var to=document.getElementById('eTo').value;
+var entries=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;}).sort(function(a,b){return (a.date+a.time)>(b.date+b.time)?1:-1;});
+if(!entries.length){alert('No data in range');return;}
+var totS=0,totD=0;entries.forEach(function(e){totS+=e.sys;totD+=e.dia;});
+var h='<html><head><meta charset="UTF-8"><style>body{font-family:-apple-system,sans-serif;padding:20px;background:#fff;}table{width:100%;border-collapse:collapse;}th,td{border:1px solid #ddd;padding:8px;text-align:center;}th{background:#f5f5f5;}.green{color:#34a853;}.red{color:#ea4335;}.orange{color:#fbbc04;}</style></head><body>';
+h+='<h2>Blood Pressure Log</h2><p>'+from+' to '+to+' ('+entries.length+' readings)</p>';
+h+='<table><tr><th>Date</th><th>Time</th><th>Sys</th><th>Dia</th><th>Pulse</th><th>Meds</th><th>Symptoms</th></tr>';
+entries.forEach(function(e){var cls=(e.sys>=110&&e.sys<=140&&e.dia>=70&&e.dia<=90)?'green':(e.sys>=140||e.dia>=90)?'red':'orange';
+h+='<tr><td>'+e.date+'</td><td>'+e.time+'</td><td class="'+cls+'"><b>'+e.sys+'</b></td><td class="'+cls+'"><b>'+e.dia+'</b></td><td>'+e.pulse+'</td><td>'+(e.meds||[]).join(', ')+'</td><td>'+(e.symptoms||[]).join(', ')+'</td></tr>';});
+h+='<tr style="font-weight:700;background:#f0f0f0;"><td colspan="2">Average</td><td>'+Math.round(totS/entries.length)+'</td><td>'+Math.round(totD/entries.length)+'</td><td colspan="3"></td></tr>';
+h+='</table></body></html>';var w=window.open();w.document.write(h);w.document.close();}
+
+function copyPlainText(){
+var from=document.getElementById('eFrom').value;var to=document.getElementById('eTo').value;
+var entries=DATA.bp.filter(function(e){return e.date>=from&&e.date<=to;}).sort(function(a,b){return (a.date+a.time)>(b.date+b.time)?1:-1;});
+if(!entries.length){alert('No data in range');return;}
+var t='BP LOG ('+from+' to '+to+')\n';t+='Date       Time   Sys/Dia  Pulse  Meds\n';t+='-'.repeat(55)+'\n';
+entries.forEach(function(e){t+=e.date+'  '+e.time+'  '+e.sys+'/'+e.dia+'    '+e.pulse+'    '+(e.meds||[]).join(', ')+'\n';});
+var totS=0,totD=0;entries.forEach(function(e){totS+=e.sys;totD+=e.dia;});
+t+='-'.repeat(55)+'\nAverage: '+Math.round(totS/entries.length)+'/'+Math.round(totD/entries.length)+' ('+entries.length+' readings)\n';
+navigator.clipboard.writeText(t).then(function(){alert('Copied to clipboard!');});}
+
+function showStorageDiag(){var el=document.getElementById('diagOutput');if(!el)return;el.style.display='block';
+var html='<b>localStorage keys ('+localStorage.length+'):</b><br>';
+for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);var v=localStorage.getItem(k);var hasBP=v&&v.indexOf('"bp"')>-1;
+html+='<div style="margin:4px 0;padding:4px;background:'+(hasBP?'#d4edda':'#fff')+';border-radius:4px;"><b>'+k+'</b> ('+v.length+' chars)';
+if(hasBP){html+=' ✅ HAS BP DATA';try{var d=JSON.parse(v);html+=' — '+d.bp.length+' readings';}catch(e){}}html+='</div>';}
+html+='<br><b>Current DATA.bp:</b> '+DATA.bp.length+' readings';el.innerHTML=html;}
+
+setCurrentTime();refreshLog();updateTotals();
+</script></body></html>
